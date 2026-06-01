@@ -1,0 +1,17 @@
+// 半卷相思 - 主题变量
+$color-bg: #f7f3ed;
+$color-bg-card: rgba(255, 255, 255, 0.55);
+$color-text: #3d3832;
+$color-text-secondary: #8a8278;
+$color-text-muted: #b5aea3;
+$color-accent: #6b5d4f;
+$color-border: rgba(107, 93, 79, 0.12);
+
+$font-serif: 'Songti SC', 'STSong', 'SimSun', serif;
+
+$spacing-page: 48rpx;
+$spacing-section: 32rpx;
+$radius-card: 16rpx;
+
+// 自定义 TabBar 内容区高度（与 constants/tabBar.js TAB_BAR_HEIGHT_PX 一致）
+$tab-bar-height: 64px;

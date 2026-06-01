@@ -1,0 +1,66 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": {
+        "navigationStyle": "custom",
+        "backgroundColor": "#F7F3ED"
+      }
+    },
+    {
+      "path": "pages/favorites/index",
+      "style": {
+        "navigationStyle": "custom",
+        "backgroundColor": "#F7F3ED"
+      }
+    },
+    {
+      "path": "pages/about/index",
+      "style": {
+        "navigationStyle": "custom",
+        "backgroundColor": "#F7F3ED"
+      }
+    },
+    {
+      "path": "pages/detail/index",
+      "style": {
+        "navigationBarTitleText": "诗词详情",
+        "navigationStyle": "custom"
+      }
+    }
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "半卷相思",
+    "navigationBarBackgroundColor": "#F7F3ED",
+    "backgroundColor": "#F7F3ED"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#8a8278",
+    "selectedColor": "#6b5d4f",
+    "backgroundColor": "#F7F3ED",
+    "borderStyle": "black",
+    "height": "64px",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "text": "今日",
+        "iconPath": "static/tab/tab-home.png",
+        "selectedIconPath": "static/tab/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/favorites/index",
+        "text": "收藏",
+        "iconPath": "static/tab/tab-fav.png",
+        "selectedIconPath": "static/tab/tab-fav-active.png"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "text": "关于",
+        "iconPath": "static/tab/tab-about.png",
+        "selectedIconPath": "static/tab/tab-about-active.png"
+      }
+    ]
+  }
+}
