@@ -10,7 +10,7 @@
     {
       "path": "pages/favorites/index",
       "style": {
-        "navigationStyle": "custom",
+        "navigationBarTitleText": "我的收藏",
         "backgroundColor": "#F7F3ED"
       }
     },

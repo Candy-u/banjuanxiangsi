@@ -9,33 +9,25 @@
       <view class="detail__back-btn" @tap="goBack">
         <image class="detail__back-img" src="/static/back.png" mode="aspectFit" />
       </view>
-      <view class="detail__music-btn" @tap="toggleBgMusic">
-        <image
-          class="detail__music-img"
-          :class="{ 'detail__music-img--spinning': bgMusicPlaying }"
-          src="/static/music.png"
-          mode="aspectFit"
-        />
+    </view>
+
+    <view v-if="poem" class="detail__heading">
+      <text class="detail__title text-serif">{{ poem.title }}</text>
+      <view class="detail__meta">
+        <text class="detail__author text-serif">{{ poem.author }}</text>
+        <text v-if="poem.dynasty" class="detail__dynasty text-muted">{{ poem.dynasty }}</text>
       </view>
     </view>
 
     <!-- 主内容滚动区 -->
     <scroll-view class="detail__body" scroll-y :show-scrollbar="false">
       <view v-if="poem" class="detail__inner">
-        <!-- 标题 + 作者 -->
-        <view class="detail__heading">
-          <text class="detail__title text-serif">{{ poem.title }}</text>
-          <view class="detail__meta">
-            <text class="detail__author text-serif">{{ poem.author }}</text>
-            <text v-if="poem.dynasty" class="detail__dynasty text-muted">{{ poem.dynasty }}</text>
-          </view>
-        </view>
-
         <!-- 诗词正文卡片 -->
         <view class="detail__card">
           <image class="detail__card-bg" src="/static/p_bg.png" mode="scaleToFill" />
           <view class="detail__card-body">
-            <text v-for="(line, i) in contentLines" :key="i" class="detail__line text-serif">{{ line }}</text>
+            <text v-for="(line, i) in contentLines" :key="i" class="detail__line text-serif"
+              :class="{ 'detail__line--highlight': isHighlightLine(line) }">{{ line }}</text>
           </view>
         </view>
 
@@ -63,10 +55,8 @@ import { onLoad, onShareAppMessage } from '@dcloudio/uni-app'
 import { getPoemById } from '@/utils/poem'
 import { useFavoritesStore } from '@/stores/favorites'
 import { usePageLayout } from '@/composables/usePageLayout'
-import { useBgMusic } from '@/composables/useBgMusic'
 
 const { statusBarHeight, pageStyle } = usePageLayout({ withTabBar: false })
-const { isPlaying: bgMusicPlaying, toggle: toggleBgMusic } = useBgMusic()
 
 const favoritesStore = useFavoritesStore()
 const poem = ref(null)
@@ -83,8 +73,30 @@ const contentLines = computed(() => {
     .filter(Boolean)
 })
 
+const excerptLineSet = computed(() => {
+  if (!poem.value?.excerpt) return new Set()
+  const lines = poem.value.excerpt
+    .split(/[，。！？；]/)
+    .map((s) => normalizeLine(s))
+    .filter(Boolean)
+  return new Set(lines)
+})
+
+function normalizeLine(text = '') {
+  return text.replace(/\s+/g, '').trim()
+}
+
+function isHighlightLine(line) {
+  return excerptLineSet.value.has(normalizeLine(line))
+}
+
 function goBack() {
-  uni.navigateBack()
+  const pages = getCurrentPages()
+  if (pages.length > 1) {
+    uni.navigateBack()
+  } else {
+    uni.switchTab({ url: '/pages/home/index' })
+  }
 }
 
 function toggleFavorite() {
@@ -176,7 +188,7 @@ onShareAppMessage(() => ({
   flex: 1;
   height: 0;
   box-sizing: border-box;
-  padding: 0 $spacing-page;
+  padding: 0 $spacing-page 0;
 }
 
 .detail__inner {
@@ -185,9 +197,14 @@ onShareAppMessage(() => ({
 
 /* ── 标题 + 作者 ── */
 .detail__heading {
+  position: relative;
+  z-index: 2;
   padding-top: 40rpx;
-  padding-bottom: 40rpx;
+  padding-bottom: 24rpx;
+  padding-left: $spacing-page;
+  padding-right: $spacing-page;
   text-align: center;
+  flex-shrink: 0;
 }
 
 .detail__title {
@@ -247,6 +264,10 @@ onShareAppMessage(() => ({
   letter-spacing: 4rpx;
 }
 
+.detail__line--highlight {
+  color: #a02f22;
+}
+
 /* ── 收藏 + 分享（复用首页样式） ── */
 .detail__actions {
   display: flex;
@@ -291,13 +312,13 @@ onShareAppMessage(() => ({
 }
 
 .detail__action-img {
-  width: 40rpx;
-  height: 40rpx;
+  width: 46rpx;
+  height: 46rpx;
   flex-shrink: 0;
 }
 
 .detail__action-label {
-  font-size: 26rpx;
+  font-size: 28rpx;
   letter-spacing: 1rpx;
 }
 
@@ -325,8 +346,13 @@ onShareAppMessage(() => ({
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .detail__music-img--spinning {

@@ -19,6 +19,7 @@
       <view class="home__card" :style="cardAnimStyle">
         <image class="home__card-bg" src="/static/p_bg.png" mode="scaleToFill" />
         <view class="home__card-body">
+          <image class="home__quote-icon" src="/static/quote.png" mode="aspectFit" />
           <text v-for="(line, i) in excerptLines" :key="i" class="home__excerpt text-ndd">{{ line }}</text>
           <text v-if="currentPoem" class="home__meta text-secondary">— {{ currentPoem.author }}</text>
           <!-- 查看全文 -->
@@ -42,32 +43,49 @@
         </button>
       </view>
 
-      <!-- 轮播圆点提示（装饰性，中间点常亮） -->
-      <view class="home__dots">
-        <view v-for="i in 5" :key="i" :class="['home__dot', i === activeDot ? 'home__dot--active' : '']" />
+      <!-- 圆点指示 -->
+      <view class="home__dots-viewport">
+        <view class="home__dots-track" :style="dotsTrackStyle">
+          <view v-for="i in TRACK_DOT_COUNT" :key="i" class="home__dot"
+            :class="{ 'home__dot--active': i - 1 === scrollIndex }" />
+        </view>
       </view>
     </view>
 
     <AppTabBar :current="0" />
+
+    <!-- 合成分享图用的离屏 canvas，隐藏在屏幕外 -->
+    <canvas canvas-id="shareCanvas"
+      style="position: fixed; bottom: -500px; left: -600px; width: 500px; height: 400px;" />
   </view>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue'
-import { onShareAppMessage } from '@dcloudio/uni-app'
-import { getRandomPoem } from '@/utils/poem'
+import { ref, computed, onMounted, getCurrentInstance } from 'vue'
+import { onShareAppMessage, onLoad } from '@dcloudio/uni-app'
+import { getRandomPoem, getPoemById } from '@/utils/poem'
 import { useFavoritesStore } from '@/stores/favorites'
 import { usePageLayout } from '@/composables/usePageLayout'
 import { useBgMusic } from '@/composables/useBgMusic'
 import AppTabBar from '@/components/AppTabBar.vue'
 
 const { pageStyle, statusBarHeight } = usePageLayout({ withTabBar: true })
+const internalInstance = getCurrentInstance()
+const shareImagePath = ref('')
 const { isPlaying: bgMusicPlaying, play: playBgMusic, toggle: toggleBgMusic } = useBgMusic()
 
 const favoritesStore = useFavoritesStore()
+// 轨道圆点数量（装饰用，不对应具体诗词 id）
+const TRACK_DOT_COUNT = 21
+const DOT_SIZE_RPX = 10
+const DOT_GAP_RPX = 12
+const DOT_STEP_RPX = DOT_SIZE_RPX + DOT_GAP_RPX
+const VIEWPORT_W_RPX = 280
+
 const currentPoem = ref(null)
 const switching = ref(false)
-const activeDot = ref(3)   // 5个点，默认第3个（中间）亮起
+const scrollIndex = ref(Math.floor(TRACK_DOT_COUNT / 2))
+const dotsTransition = ref('')
 let touchStartX = 0
 
 const favorited = computed(() =>
@@ -89,16 +107,93 @@ const cardAnimStyle = computed(() => ({
   transition: 'opacity 0.25s ease, transform 0.25s ease',
 }))
 
+const dotsTrackStyle = computed(() => {
+  const centerOffset = VIEWPORT_W_RPX / 2 - DOT_SIZE_RPX / 2
+  const dotOffset = scrollIndex.value * DOT_STEP_RPX
+  return {
+    transform: `translateX(${centerOffset - dotOffset}rpx)`,
+    transition: dotsTransition.value,
+  }
+})
+
+function shiftDots(direction) {
+  dotsTransition.value = 'transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)'
+  scrollIndex.value += direction
+
+  setTimeout(() => {
+    const mid = Math.floor(TRACK_DOT_COUNT / 2)
+    const edge = 5
+    if (scrollIndex.value > mid + edge || scrollIndex.value < mid - edge) {
+      dotsTransition.value = 'none'
+      scrollIndex.value = mid
+    }
+    setTimeout(() => {
+      dotsTransition.value = 'transform 0.28s cubic-bezier(0.4, 0, 0.2, 1)'
+    }, 20)
+  }, 280)
+}
+
+function renderShareImage() {
+  if (!currentPoem.value) return
+  return new Promise((resolve) => {
+    const ctx = uni.createCanvasContext('shareCanvas', internalInstance)
+    const W = 500
+    const H = 400
+
+    ctx.drawImage('/static/share_bg.png', 0, 0, W, H)
+
+    const { excerpt, author } = currentPoem.value
+    const cleanText = excerpt.replace(/[\n\s]/g, '')
+    const maxLen = 10
+    const lines = []
+    for (let i = 0; i < cleanText.length; i += maxLen) {
+      lines.push(cleanText.slice(i, i + maxLen))
+    }
+
+    const fontSize = 40
+    const lineH = 60
+    const authorFontSize = 28
+    // share_bg 下方展板区域大约从 y=262 开始，高度约 138px
+    const boardTop = 258
+    const boardH = 142
+    const totalH = lines.length * lineH + authorFontSize + 16
+    const startY = boardTop + Math.max(0, (boardH - totalH) / 2) + fontSize
+
+    ctx.setFontSize(fontSize)
+    ctx.setFillStyle('#5a4535')
+    ctx.setTextAlign('center')
+    lines.forEach((line, i) => {
+      ctx.fillText(line, W / 2, startY + i * lineH)
+    })
+
+    ctx.setFontSize(authorFontSize)
+    ctx.setFillStyle('#8a7a6a')
+    ctx.fillText(`—— ${author}`, W / 2, startY + lines.length * lineH + 16)
+
+    ctx.draw(false, () => {
+      uni.canvasToTempFilePath(
+        {
+          canvasId: 'shareCanvas',
+          success: (res) => {
+            shareImagePath.value = res.tempFilePath
+            resolve(res.tempFilePath)
+          },
+          fail: () => resolve(''),
+        },
+        internalInstance,
+      )
+    })
+  })
+}
+
 function pickRandom(excludeId, direction = 1) {
   if (switching.value) return
   switching.value = true
-  // 圆点跟随滑动方向移动，到头再循环
-  activeDot.value = activeDot.value + direction < 1 ? 5
-    : activeDot.value + direction > 5 ? 1
-      : activeDot.value + direction
+  if (excludeId !== undefined) shiftDots(direction)
   setTimeout(() => {
     currentPoem.value = getRandomPoem(excludeId)
     switching.value = false
+    renderShareImage()
   }, 250)
 }
 
@@ -128,8 +223,19 @@ function toggleFavorite() {
   })
 }
 
-onMounted(() => {
+onLoad((options) => {
+  if (options?.id) {
+    const poem = getPoemById(options.id)
+    if (poem) {
+      currentPoem.value = poem
+      renderShareImage()
+      return
+    }
+  }
   pickRandom()
+})
+
+onMounted(() => {
   playBgMusic()
 })
 
@@ -137,7 +243,10 @@ onShareAppMessage(() => ({
   title: currentPoem.value
     ? `${currentPoem.value.excerpt} — ${currentPoem.value.author}`
     : '半卷相思',
-  path: '/pages/home/index',
+  path: currentPoem.value
+    ? `/pages/home/index?id=${currentPoem.value.id}`
+    : '/pages/home/index',
+  imageUrl: shareImagePath.value || '/static/share_bg.png',
 }))
 </script>
 
@@ -261,6 +370,14 @@ onShareAppMessage(() => ({
   background: rgba(255, 252, 245, 0.3);
 }
 
+.home__quote-icon {
+  position: absolute;
+  top: 56rpx;
+  left: 56rpx;
+  width: 64rpx;
+  height: 64rpx;
+}
+
 .home__excerpt {
   display: block;
   font-size: 54rpx;
@@ -275,6 +392,7 @@ onShareAppMessage(() => ({
   font-size: 28rpx;
   color: $color-text-secondary;
   letter-spacing: 2rpx;
+  text-align: right;
 }
 
 /* ── 卡片操作区（收藏 + 分享）── */
@@ -322,13 +440,13 @@ onShareAppMessage(() => ({
 }
 
 .home__action-img {
-  width: 40rpx;
-  height: 40rpx;
+  width: 46rpx;
+  height: 46rpx;
   flex-shrink: 0;
 }
 
 .home__action-label {
-  font-size: 26rpx;
+  font-size: 28rpx;
   letter-spacing: 1rpx;
 }
 
@@ -340,25 +458,49 @@ onShareAppMessage(() => ({
 }
 
 /* ── 轮播圆点 ── */
-.home__dots {
+.home__dots-viewport {
+  position: relative;
+  width: 280rpx;
+  height: 24rpx;
+  margin-top: 36rpx;
+  overflow: hidden;
+  flex-shrink: 0;
+  -webkit-mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 18%,
+      #000 82%,
+      transparent 100%);
+  mask-image: linear-gradient(90deg,
+      transparent 0%,
+      #000 18%,
+      #000 82%,
+      transparent 100%);
+}
+
+.home__dots-track {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 14rpx;
-  margin-top: 36rpx;
+  gap: 12rpx;
+  height: 100%;
+  will-change: transform;
 }
 
 .home__dot {
-  width: 12rpx;
-  height: 12rpx;
+  flex-shrink: 0;
+  width: 10rpx;
+  height: 10rpx;
   border-radius: 50%;
-  background: rgba(107, 93, 79, 0.2);
-  transition: width 0.3s ease, background 0.3s ease, border-radius 0.3s ease;
+  background: rgba(107, 93, 79, 0.28);
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    height 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .home__dot--active {
-  width: 32rpx;
-  border-radius: 8rpx;
+  width: 14rpx;
+  height: 8rpx;
+  border-radius: 6rpx;
   background: $color-accent;
 }
 

@@ -19,7 +19,7 @@ function getAudio() {
   _audio.onPause(() => { isPlaying.value = false })
   _audio.onStop(() => { isPlaying.value = false; _srcSet = false })
   // 播放结束后重置 src 实现循环，会自动触发 onPlay
-  _audio.onEnded(() => { _audio.src = '/static/mp3/bg.mp3' })
+  _audio.onEnded(() => { _audio.src = 'https://xiangsi.pages.dev/bg.mp3' })
   return _audio
 }
 
@@ -28,7 +28,7 @@ export function useBgMusic() {
   function play() {
     const a = getAudio()
     if (!isPlaying.value) {
-      a.src = '/static/mp3/bg.mp3'
+      a.src = 'https://xiangsi.pages.dev/bg.mp3'
       _srcSet = true
     }
   }
@@ -42,7 +42,7 @@ export function useBgMusic() {
       // 已加载过音频，直接恢复播放
       a.play()
     } else {
-      a.src = '/static/mp3/bg.mp3'
+      a.src = 'https://xiangsi.pages.dev/bg.mp3'
       _srcSet = true
     }
   }

@@ -60,10 +60,3 @@ button::after {
   color: $color-accent;
   border-color: $color-accent;
 }
-@font-face {
-  font-family: 'ndd';
-  src: url('../static/fonts/S3s.ttf') ;
-}
-.text-ndd {
-  font-family: 'ndd';
-}
