@@ -78,6 +78,7 @@ const favoritesStore = useFavoritesStore()
 // 轨道圆点数量（装饰用，不对应具体诗词 id）
 const TRACK_DOT_COUNT = 21
 const DOT_SIZE_RPX = 10
+const DOT_ACTIVE_SIZE_RPX = 14
 const DOT_GAP_RPX = 12
 const DOT_STEP_RPX = DOT_SIZE_RPX + DOT_GAP_RPX
 const VIEWPORT_W_RPX = 280
@@ -108,7 +109,8 @@ const cardAnimStyle = computed(() => ({
 }))
 
 const dotsTrackStyle = computed(() => {
-  const centerOffset = VIEWPORT_W_RPX / 2 - DOT_SIZE_RPX / 2
+  // 激活点宽 14rpx，在 flex 中向右扩展，用其宽度的一半来居中
+  const centerOffset = VIEWPORT_W_RPX / 2 - DOT_ACTIVE_SIZE_RPX / 2
   const dotOffset = scrollIndex.value * DOT_STEP_RPX
   return {
     transform: `translateX(${centerOffset - dotOffset}rpx)`,
