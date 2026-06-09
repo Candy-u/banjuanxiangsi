@@ -1,0 +1,896 @@
+[
+  {
+    "id": "19003",
+    "author": "刘禹锡",
+    "dynasty": "唐代",
+    "title": "乌衣巷",
+    "content": "朱雀桥边野草花，乌衣巷口夕阳斜。\n旧时王谢堂前燕，飞入寻常百姓家。",
+    "audio": "https://your-cdn.com/audio/19003.mp3"
+  },
+  {
+    "id": "27713",
+    "author": "杜牧",
+    "dynasty": "唐代",
+    "title": "泊秦淮",
+    "content": "烟笼寒水月笼沙，夜泊秦淮近酒家。\n商女不知亡国恨，隔江犹唱后庭花。",
+    "audio": "https://your-cdn.com/audio/27713.mp3",
+    "sound_pic": "https://your-cdn.com/images/27713.jpg"
+  },
+  {
+    "id": "65063",
+    "author": "林逋",
+    "dynasty": "宋代",
+    "title": "长相思·吴山青",
+    "content": "吴山青，越山青，两岸青山相送迎，谁知离别情？(谁知离别情一作：争忍有离情)\n君泪盈，妾泪盈，罗带同心结未成，江边潮已平。(江边一作：江头)",
+    "audio": "https://your-cdn.com/audio/65063.mp3"
+  },
+  {
+    "id": "345017",
+    "author": "高适",
+    "dynasty": "唐代",
+    "title": "别董大",
+    "content": "千里黄云白日曛，北风吹雁雪纷纷。\n莫愁前路无知己，天下谁人不识君。",
+    "audio": "https://your-cdn.com/audio/345017.mp3",
+    "sound_pic": "https://your-cdn.com/images/345017.png"
+  },
+  {
+    "id": "5782",
+    "author": "王维",
+    "dynasty": "唐代",
+    "title": "送元二使安西",
+    "content": "渭城朝雨浥轻尘，客舍青青柳色新。\n劝君更尽一杯酒，西出阳关无故人。",
+    "audio": "https://your-cdn.com/audio/5782.mp3"
+  },
+  {
+    "id": "50973",
+    "author": "周邦彦",
+    "dynasty": "宋代",
+    "title": "苏幕遮·燎沉香",
+    "content": "燎沉香，消溽暑。鸟雀呼晴，侵晓窥檐语。叶上初阳干宿雨，水面清圆，一一风荷举。\n故乡遥，何日去？家住吴门，久作长安旅。五月渔郎相忆否？小楫轻舟，梦入芙蓉浦。",
+    "audio": "https://your-cdn.com/audio/50973.mp3",
+    "sound_pic": "https://your-cdn.com/images/50973.jpg"
+  },
+  {
+    "id": "57601",
+    "author": "辛弃疾",
+    "dynasty": "宋代",
+    "title": "青玉案·元夕",
+    "content": "东风夜放花千树，更吹落，星如雨。宝马雕车香满路。凤箫声动，玉壶光转，一夜鱼龙舞。\n蛾儿雪柳黄金缕，笑语盈盈暗香去。众里寻他千百度，蓦然回首，那人却在，灯火阑珊处。",
+    "audio": "https://your-cdn.com/audio/57601.mp3",
+    "video_id": "12"
+  },
+  {
+    "id": "8066",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "梦游天姥吟留别",
+    "content": "海客谈瀛洲，烟涛微茫信难求；\n越人语天姥，云霞明灭或可睹。\n天姥连天向天横，势拔五岳掩赤城。\n天台四万八千丈，对此欲倒东南倾。(四万一作：一万)\n我欲因之梦吴越，一夜飞度镜湖月。\n湖月照我影，送我至剡溪。\n谢公宿处今尚在，渌水荡漾清猿啼。\n脚著谢公屐，身登青云梯。\n半壁见海日，空中闻天鸡。\n千岩万转路不定，迷花倚石忽已暝。\n熊咆龙吟殷岩泉，栗深林兮惊层巅。\n云青青兮欲雨，水澹澹兮生烟。\n列缺霹雳，丘峦崩摧。\n洞天石扉，訇然中开。\n青冥浩荡不见底，日月照耀金银台。\n霓为衣兮风为马，云之君兮纷纷而来下。\n虎鼓瑟兮鸾回车，仙之人兮列如麻。\n忽魂悸以魄动，恍惊起而长嗟。\n惟觉时之枕席，失向来之烟霞。\n世间行乐亦如此，古来万事东流水。\n别君去兮何时还？且放白鹿青崖间，须行即骑访名山。\n安能摧眉折腰事权贵，使我不得开心颜！",
+    "audio": "https://your-cdn.com/audio/8066.mp3",
+    "sound_pic": "https://your-cdn.com/images/8066.png",
+    "video_id": "17"
+  },
+  {
+    "id": "7717",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "蜀道难",
+    "content": "噫吁嚱，危乎高哉！\n蜀道之难，难于上青天！\n蚕丛及鱼凫，开国何茫然！\n尔来四万八千岁，不与秦塞通人烟。\n西当太白有鸟道，可以横绝峨眉巅。\n地崩山摧壮士死，然后天梯石栈相钩连。\n上有六龙回日之高标，下有冲波逆折之回川。\n黄鹤之飞尚不得过，猿猱欲度愁攀援。\n青泥何盘盘，百步九折萦岩峦。\n扪参历井仰胁息，以手抚膺坐长叹。\n问君西游何时还？畏途巉岩不可攀。\n但见悲鸟号古木，雄飞雌从绕林间。\n又闻子规啼夜月，愁空山。\n蜀道之难，难于上青天，使人听此凋朱颜！\n连峰去天不盈尺，枯松倒挂倚绝壁。\n飞湍瀑流争喧豗，砯崖转石万壑雷。\n其险也如此，嗟尔远道之人胡为乎来哉！(也如此一作：也若此)\n剑阁峥嵘而崔嵬，一夫当关，万夫莫开。\n所守或匪亲，化为狼与豺。\n朝避猛虎，夕避长蛇，磨牙吮血，杀人如麻。\n锦城虽云乐，不如早还家。\n蜀道之难，难于上青天，侧身西望长咨嗟！",
+    "audio": "https://your-cdn.com/audio/7717.mp3",
+    "sound_pic": "https://your-cdn.com/images/7717.png"
+  },
+  {
+    "id": "48343",
+    "author": "柳永",
+    "dynasty": "宋代",
+    "title": "望海潮·东南形胜",
+    "content": "东南形胜，三吴都会，钱塘自古繁华。烟柳画桥，风帘翠幕，参差十万人家。云树绕堤沙，怒涛卷霜雪，天堑无涯。市列珠玑，户盈罗绮，竞豪奢。\n重湖叠巘清嘉，有三秋桂子，十里荷花。羌管弄晴，菱歌泛夜，嬉嬉钓叟莲娃。千骑拥高牙，乘醉听箫鼓，吟赏烟霞。异日图将好景，归去凤池夸。",
+    "audio": "https://your-cdn.com/audio/48343.mp3",
+    "sound_pic": "https://your-cdn.com/images/48343.png"
+  },
+  {
+    "id": "10928",
+    "author": "杜甫",
+    "dynasty": "唐代",
+    "title": "蜀相",
+    "content": "丞相祠堂何处寻？锦官城外柏森森。\n映阶碧草自春色，隔叶黄鹂空好音。\n三顾频烦天下计，两朝开济老臣心。\n出师未捷身先死，长使英雄泪满襟。",
+    "audio": "https://your-cdn.com/audio/10928.mp3",
+    "sound_pic": "https://your-cdn.com/images/10928.jpg"
+  },
+  {
+    "id": "10965",
+    "author": "杜甫",
+    "dynasty": "唐代",
+    "title": "客至",
+    "content": "舍南舍北皆春水，但见群鸥日日来。\n花径不曾缘客扫，蓬门今始为君开。\n盘飧市远无兼味，樽酒家贫只旧醅。\n肯与邻翁相对饮，隔篱呼取尽余杯。",
+    "audio": "https://your-cdn.com/audio/10965.mp3",
+    "sound_pic": "https://your-cdn.com/images/10965.png"
+  },
+  {
+    "id": "69128",
+    "author": "陆游",
+    "dynasty": "宋代",
+    "title": "书愤",
+    "content": "早岁那知世事艰，中原北望气如山。\n楼船夜雪瓜洲渡，铁马秋风大散关。\n塞上长城空自许，镜中衰鬓已先斑。\n出师一表真名世，千载谁堪伯仲间！",
+    "audio": "https://your-cdn.com/audio/69128.mp3",
+    "sound_pic": "https://your-cdn.com/images/69128.jpg"
+  },
+  {
+    "id": "20270",
+    "author": "李贺",
+    "dynasty": "唐代",
+    "title": "李凭箜篌引",
+    "content": "吴丝蜀桐张高秋，空山凝云颓不流。\n江娥啼竹素女愁，李凭中国弹箜篌。\n昆山玉碎凤凰叫，芙蓉泣露香兰笑。\n十二门前融冷光，二十三丝动紫皇。\n女娲炼石补天处，石破天惊逗秋雨。\n梦入神山教神妪，老鱼跳波瘦蛟舞。\n吴质不眠倚桂树，露脚斜飞湿寒兔。",
+    "audio": "https://your-cdn.com/audio/20270.mp3",
+    "sound_pic": "https://your-cdn.com/images/20270.jpg"
+  },
+  {
+    "id": "28569",
+    "author": "李商隐",
+    "dynasty": "唐代",
+    "title": "锦瑟",
+    "content": "锦瑟无端五十弦，一弦一柱思华年。\n庄生晓梦迷蝴蝶，望帝春心托杜鹃。\n沧海月明珠有泪，蓝田日暖玉生烟。\n此情可待成追忆，只是当时已惘然。",
+    "audio": "https://your-cdn.com/audio/28569.mp3",
+    "sound_pic": "https://your-cdn.com/images/28569.jpg"
+  },
+  {
+    "id": "131",
+    "author": "佚名",
+    "dynasty": "先秦",
+    "title": "秦风·无衣",
+    "content": "岂曰无衣？与子同袍。王于兴师，修我戈矛。与子同仇！\n岂曰无衣？与子同泽。王于兴师，修我矛戟。与子偕作！\n岂曰无衣？与子同裳。王于兴师，修我甲兵。与子偕行！",
+    "audio": "https://your-cdn.com/audio/131.mp3",
+    "sound_pic": "https://your-cdn.com/images/131.png"
+  },
+  {
+    "id": "49480",
+    "author": "苏轼",
+    "dynasty": "宋代",
+    "title": "江城子·乙卯正月二十日夜记梦",
+    "content": "十年生死两茫茫，不思量，自难忘。千里孤坟，无处话凄凉。纵使相逢应不识，尘满面，鬓如霜。\n夜来幽梦忽还乡，小轩窗，正梳妆。相顾无言，惟有泪千行。料得年年肠断处，明月夜，短松冈。",
+    "audio": "https://your-cdn.com/audio/49480.mp3",
+    "sound_pic": "https://your-cdn.com/images/49480.jpg",
+    "video_id": "24"
+  },
+  {
+    "id": "7722",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "将进酒",
+    "content": "君不见黄河之水天上来，奔流到海不复回。\n君不见高堂明镜悲白发，朝如青丝暮成雪。\n人生得意须尽欢，莫使金樽空对月。\n天生我材必有用，千金散尽还复来。\n烹羊宰牛且为乐，会须一饮三百杯。\n岑夫子，丹丘生，将进酒，杯莫停。\n与君歌一曲，请君为我倾耳听。(倾耳听 一作：侧耳听)\n钟鼓馔玉不足贵，但愿长醉不愿醒。(不足贵 一作：何足贵；不愿醒 一作：不复醒)\n古来圣贤皆寂寞，惟有饮者留其名。(古来 一作：自古；惟 通：唯)\n陈王昔时宴平乐，斗酒十千恣欢谑。\n主人何为言少钱，径须沽取对君酌。\n五花马、千金裘，呼儿将出换美酒，与尔同销万古愁。",
+    "audio": "https://your-cdn.com/audio/7722.mp3",
+    "sound_pic": "https://your-cdn.com/images/7722.jpg",
+    "video_id": "35"
+  },
+  {
+    "id": "5256",
+    "author": "张若虚",
+    "dynasty": "唐代",
+    "title": "春江花月夜",
+    "content": "春江潮水连海平，海上明月共潮生。\n滟滟随波千万里，何处春江无月明！\n江流宛转绕芳甸，月照花林皆似霰。\n空里流霜不觉飞，汀上白沙看不见。\n江天一色无纤尘，皎皎空中孤月轮。\n江畔何人初见月？江月何年初照人？\n人生代代无穷已，江月年年望相似。(望相似一作：只相似)\n不知江月待何人，但见长江送流水。\n白云一片去悠悠，青枫浦上不胜愁。\n谁家今夜扁舟子？何处相思明月楼？\n可怜楼上月裴回，应照离人妆镜台。(裴回一作：徘徊)\n玉户帘中卷不去，捣衣砧上拂还来。\n此时相望不相闻，愿逐月华流照君。\n鸿雁长飞光不度，鱼龙潜跃水成文。\n昨夜闲潭梦落花，可怜春半不还家。\n江水流春去欲尽，江潭落月复西斜。\n斜月沉沉藏海雾，碣石潇湘无限路。\n不知乘月几人归，落月摇情满江树。(落月一作：落花)",
+    "audio": "https://your-cdn.com/audio/5256.mp3",
+    "sound_pic": "https://your-cdn.com/images/5256.png",
+    "video_id": "8"
+  },
+  {
+    "id": "48003",
+    "author": "曹操",
+    "dynasty": "两汉",
+    "title": "短歌行",
+    "content": "对酒当歌，人生几何！\n譬如朝露，去日苦多。\n慨当以慷，忧思难忘。\n何以解忧？唯有杜康。(唯一作：惟)\n青青子衿，悠悠我心。\n但为君故，沉吟至今。\n呦呦鹿鸣，食野之苹。\n我有嘉宾，鼓瑟吹笙。\n明明如月，何时可掇？(明明一作：皎皎)\n忧从中来，不可断绝。\n越陌度阡，枉用相存。\n契阔谈讌，心念旧恩。(谈讌一作：谈宴)\n月明星稀，乌鹊南飞。\n绕树三匝，何枝可依？\n山不厌高，海不厌深。\n周公吐哺，天下归心。",
+    "audio": "https://your-cdn.com/audio/48003.mp3",
+    "sound_pic": "https://your-cdn.com/images/48003.jpg"
+  },
+  {
+    "id": "47921",
+    "author": "苏轼",
+    "dynasty": "宋代",
+    "title": "赤壁赋",
+    "content": "壬戌之秋，七月既望，苏子与客泛舟游于赤壁之下。清风徐来，水波不兴。举酒属客，诵明月之诗，歌窈窕之章。少焉，月出于东山之上，徘徊于斗牛之间。白露横江，水光接天。纵一苇之所如，凌万顷之茫然。浩浩乎如冯虚御风，而不知其所止；飘飘乎如遗世独立，羽化而登仙。(冯通：凭)\n于是饮酒乐甚，扣舷而歌之。歌曰：“桂棹兮兰桨，击空明兮溯流光。渺渺兮予怀，望美人兮天一方。”客有吹洞箫者，倚歌而和之。其声呜呜然，如怨如慕，如泣如诉；余音袅袅，不绝如缕。舞幽壑之潜蛟，泣孤舟之嫠妇。\n苏子愀然，正襟危坐，而问客曰：“何为其然也？”客曰：“‘月明星稀，乌鹊南飞。’此非曹孟德之诗乎？西望夏口，东望武昌，山川相缪，郁乎苍苍，此非孟德之困于周郎者乎？方其破荆州，下江陵，顺流而东也，舳舻千里，旌旗蔽空，酾酒临江，横槊赋诗，固一世之雄也，而今安在哉？况吾与子渔樵于江渚之上，侣鱼虾而友麋鹿，驾一叶之扁舟，举匏樽以相属。寄蜉蝣于天地，渺沧海之一粟。哀吾生之须臾，羡长江之无穷。挟飞仙以遨游，抱明月而长终。知不可乎骤得，托遗响于悲风。”\n苏子曰：“客亦知夫水与月乎？逝者如斯，而未尝往也；盈虚者如彼，而卒莫消长也。盖将自其变者而观之，则天地曾不能以一瞬；自其不变者而观之，则物与我皆无尽也，而又何羡乎！且夫天地之间，物各有主，苟非吾之所有，虽一毫而莫取。惟江上之清风，与山间之明月，耳得之而为声，目遇之而成色，取之无禁，用之不竭。是造物者之无尽藏也，而吾与子之所共适。”(共适一作：共食)\n客喜而笑，洗盏更酌。肴核既尽，杯盘狼籍。相与枕藉乎舟中，不知东方之既白。",
+    "audio": "https://your-cdn.com/audio/47921.mp3",
+    "sound_pic": "https://your-cdn.com/images/47921.png"
+  },
+  {
+    "id": "21750",
+    "author": "白居易",
+    "dynasty": "唐代",
+    "title": "琵琶行",
+    "content": "元和十年，予左迁九江郡司马。明年秋，送客湓浦口，闻舟中夜弹琵琶者，听其音，铮铮然有京都声。问其人，本长安倡女，尝学琵琶于穆、曹二善才，年长色衰，委身为贾人妇。遂命酒，使快弹数曲。曲罢悯然，自叙少小时欢乐事，今漂沦憔悴，转徙于江湖间。予出官二年，恬然自安，感斯人言，是夕始觉有迁谪意。因为长句，歌以赠之，凡六百一十六言，命曰《琵琶行》。\n\n浔阳江头夜送客，枫叶荻花秋瑟瑟。\n主人下马客在船，举酒欲饮无管弦。\n醉不成欢惨将别，别时茫茫江浸月。\n\n忽闻水上琵琶声，主人忘归客不发。\n寻声暗问弹者谁，琵琶声停欲语迟。\n移船相近邀相见，添酒回灯重开宴。\n千呼万唤始出来，犹抱琵琶半遮面。\n转轴拨弦三两声，未成曲调先有情。\n弦弦掩抑声声思，似诉平生不得志。\n低眉信手续续弹，说尽心中无限事。\n轻拢慢捻抹复挑，初为《霓裳》后《六幺》。(六幺一作：绿腰)\n大弦嘈嘈如急雨，小弦切切如私语。\n嘈嘈切切错杂弹，大珠小珠落玉盘。\n间关莺语花底滑，幽咽泉流冰下难。\n冰泉冷涩弦凝绝，凝绝不通声暂歇。（暂歇一作：渐歇)\n别有幽愁暗恨生，此时无声胜有声。\n银瓶乍破水浆迸，铁骑突出刀枪鸣。\n曲终收拨当心画，四弦一声如裂帛。\n东船西舫悄无言，唯见江心秋月白。\n\n沉吟放拨插弦中，整顿衣裳起敛容。\n自言本是京城女，家在虾蟆陵下住。\n十三学得琵琶成，名属教坊第一部。\n曲罢曾教善才服，妆成每被秋娘妒。(服一作：伏)\n五陵年少争缠头，一曲红绡不知数。\n钿头银篦击节碎，血色罗裙翻酒污。(银篦一作：云篦)\n今年欢笑复明年，秋月春风等闲度。\n弟走从军阿姨死，暮去朝来颜色故。\n门前冷落鞍马稀，老大嫁作商人妇。\n商人重利轻别离，前月浮梁买茶去。\n去来江口守空船，绕船月明江水寒。\n夜深忽梦少年事，梦啼妆泪红阑干。\n\n我闻琵琶已叹息，又闻此语重唧唧。\n同是天涯沦落人，相逢何必曾相识！\n我从去年辞帝京，谪居卧病浔阳城。\n浔阳地僻无音乐，终岁不闻丝竹声。\n住近湓江地低湿，黄芦苦竹绕宅生。\n其间旦暮闻何物？杜鹃啼血猿哀鸣。\n春江花朝秋月夜，往往取酒还独倾。\n岂无山歌与村笛，呕哑嘲哳难为听。\n今夜闻君琵琶语，如听仙乐耳暂明。\n莫辞更坐弹一曲，为君翻作《琵琶行》。\n\n感我此言良久立，却坐促弦弦转急。\n凄凄不似向前声，满座重闻皆掩泣。\n座中泣下谁最多？江州司马青衫湿。",
+    "audio": "https://your-cdn.com/audio/21750.mp3",
+    "sound_pic": "https://your-cdn.com/images/21750.png",
+    "video_id": "34"
+  },
+  {
+    "id": "11098",
+    "author": "杜甫",
+    "dynasty": "唐代",
+    "title": "登高",
+    "content": "风急天高猿啸哀，渚清沙白鸟飞回。\n无边落木萧萧下，不尽长江滚滚来。\n万里悲秋常作客，百年多病独登台。\n艰难苦恨繁霜鬓，潦倒新停浊酒杯。",
+    "audio": "https://your-cdn.com/audio/11098.mp3",
+    "sound_pic": "https://your-cdn.com/images/11098.png"
+  },
+  {
+    "id": "71206",
+    "author": "毛泽东",
+    "dynasty": "近现代",
+    "title": "沁园春·长沙",
+    "content": "独立寒秋，湘江北去，橘子洲头。\n看万山红遍，层林尽染；漫江碧透，百舸争流。\n鹰击长空，鱼翔浅底，万类霜天竞自由。\n怅寥廓，问苍茫大地，谁主沉浮？\n携来百侣曾游。忆往昔峥嵘岁月稠。\n恰同学少年，风华正茂；书生意气，挥斥方遒。\n指点江山，激扬文字，粪土当年万户侯。\n曾记否，到中流击水，浪遏飞舟？",
+    "audio": "https://your-cdn.com/audio/71206.mp3",
+    "sound_pic": "https://your-cdn.com/images/71206.jpg"
+  },
+  {
+    "id": "57989",
+    "author": "辛弃疾",
+    "dynasty": "宋代",
+    "title": "永遇乐·京口北固亭怀古",
+    "content": "千古江山，英雄无觅，孙仲谋处。舞榭歌台，风流总被，雨打风吹去。斜阳草树，寻常巷陌，人道寄奴曾住。想当年，金戈铁马，气吞万里如虎。\n元嘉草草，封狼居胥，赢得仓皇北顾。四十三年，望中犹记，烽火扬州路。可堪回首，佛狸祠下，一片神鸦社鼓。凭谁问：廉颇老矣，尚能饭否？",
+    "audio": "https://your-cdn.com/audio/57989.mp3",
+    "sound_pic": "https://your-cdn.com/images/57989.jpg"
+  },
+  {
+    "id": "49394",
+    "author": "苏轼",
+    "dynasty": "宋代",
+    "title": "念奴娇·赤壁怀古",
+    "content": "大江东去，浪淘尽，千古风流人物。故垒西边，人道是，三国周郎赤壁。乱石穿空，惊涛拍岸，卷起千堆雪。江山如画，一时多少豪杰。遥想公瑾当年，小乔初嫁了，雄姿英发。羽扇纶巾，谈笑间，樯橹灰飞烟灭。故国神游，多情应笑我，早生华发。人生如梦，一尊还酹江月。",
+    "audio": "https://your-cdn.com/audio/49394.mp3",
+    "sound_pic": "https://your-cdn.com/images/49394.jpg"
+  },
+  {
+    "id": "47976",
+    "author": "佚名",
+    "dynasty": "两汉",
+    "title": "涉江采芙蓉",
+    "content": "涉江采芙蓉，兰泽多芳草。\n采之欲遗谁？所思在远道。\n还顾望旧乡，长路漫浩浩。\n同心而离居，忧伤以终老。",
+    "audio": "https://your-cdn.com/audio/47976.mp3",
+    "sound_pic": "https://your-cdn.com/images/47976.jpg"
+  },
+  {
+    "id": "42",
+    "author": "佚名",
+    "dynasty": "先秦",
+    "title": "静女",
+    "content": "静女其姝，俟我于城隅。爱而不见，搔首踟蹰。\n静女其娈，贻我彤管。彤管有炜，说怿女美。\n自牧归荑，洵美且异。匪女之为美，美人之贻。",
+    "audio": "https://your-cdn.com/audio/42.mp3",
+    "sound_pic": "https://your-cdn.com/images/42.jpg"
+  },
+  {
+    "id": "8",
+    "author": "佚名",
+    "dynasty": "先秦",
+    "title": "芣苢",
+    "content": "采采芣苢，薄言采之。采采芣苢，薄言有之。\n采采芣苢，薄言掇之。采采芣苢，薄言捋之。\n采采芣苢，薄言袺之。采采芣苢，薄言襭之。",
+    "audio": "https://your-cdn.com/audio/8.mp3",
+    "sound_pic": "https://your-cdn.com/images/8.jpg"
+  },
+  {
+    "id": "48204",
+    "author": "范仲淹",
+    "dynasty": "宋代",
+    "title": "渔家傲·秋思",
+    "content": "塞下秋来风景异，衡阳雁去无留意。四面边声连角起，千嶂里，长烟落日孤城闭。\n浊酒一杯家万里，燕然未勒归无计。羌管悠悠霜满地，人不寐，将军白发征夫泪。",
+    "audio": "https://your-cdn.com/audio/48204.mp3",
+    "sound_pic": "https://your-cdn.com/images/48204.jpg"
+  },
+  {
+    "id": "57913",
+    "author": "辛弃疾",
+    "dynasty": "宋代",
+    "title": "破阵子·为陈同甫赋壮词以寄之",
+    "content": "醉里挑灯看剑，梦回吹角连营。八百里分麾下炙，五十弦翻塞外声，沙场秋点兵。\n马作的卢飞快，弓如霹雳弦惊。了却君王天下事，赢得生前身后名。可怜白发生！",
+    "audio": "https://your-cdn.com/audio/57913.mp3",
+    "sound_pic": "https://your-cdn.com/images/57913.png",
+    "video_id": "7"
+  },
+  {
+    "id": "49475",
+    "author": "苏轼",
+    "dynasty": "宋代",
+    "title": "江城子·密州出猎",
+    "content": "老夫聊发少年狂，左牵黄，右擎苍，锦帽貂裘，千骑卷平冈。为报倾城随太守，亲射虎，看孙郎。\n酒酣胸胆尚开张。鬓微霜，又何妨！持节云中，何日遣冯唐？会挽雕弓如满月，西北望，射天狼。",
+    "audio": "https://your-cdn.com/audio/49475.mp3",
+    "sound_pic": "https://your-cdn.com/images/49475.png"
+  },
+  {
+    "id": "57847",
+    "author": "辛弃疾",
+    "dynasty": "宋代",
+    "title": "太常引·建康中秋夜为吕叔潜赋",
+    "content": "一轮秋影转金波，飞镜又重磨。把酒问姮娥：被白发，欺人奈何？\n乘风好去，长空万里，直下看山河。斫去桂婆娑，人道是，清光更多。",
+    "audio": "https://your-cdn.com/audio/57847.mp3",
+    "sound_pic": "https://your-cdn.com/images/57847.jpg"
+  },
+  {
+    "id": "53501",
+    "author": "陈与义",
+    "dynasty": "宋代",
+    "title": "临江仙·夜登小阁忆洛中旧游",
+    "content": "忆昔午桥桥上饮，坐中多是豪英。长沟流月去无声。杏花疏影里，吹笛到天明。\n二十余年如一梦，此身虽在堪惊。闲登小阁看新晴。古今多少事，渔唱起三更。",
+    "audio": "https://your-cdn.com/audio/53501.mp3",
+    "sound_pic": "https://your-cdn.com/images/53501.jpg"
+  },
+  {
+    "id": "9315",
+    "author": "岑参",
+    "dynasty": "唐代",
+    "title": "白雪歌送武判官归京",
+    "content": "北风卷地白草折，胡天八月即飞雪。\n忽如一夜春风来，千树万树梨花开。\n散入珠帘湿罗幕，狐裘不暖锦衾薄。\n将军角弓不得控，都护铁衣冷难着。(难着一作：犹著)\n瀚海阑干百丈冰，愁云惨淡万里凝。\n中军置酒饮归客，胡琴琵琶与羌笛。\n纷纷暮雪下辕门，风掣红旗冻不翻。\n轮台东门送君去，去时雪满天山路。\n山回路转不见君，雪上空留马行处。",
+    "audio": "https://your-cdn.com/audio/9315.mp3",
+    "sound_pic": "https://your-cdn.com/images/9315.jpg"
+  },
+  {
+    "id": "113255",
+    "author": "纳兰性德",
+    "dynasty": "清代",
+    "title": "浣溪沙·身向云山那畔行",
+    "content": "身向云山那畔行，北风吹断马嘶声，深秋远塞若为情！\n一抹晚烟荒戍垒，半竿斜日旧关城。古今幽恨几时平！",
+    "audio": "https://your-cdn.com/audio/113255.mp3",
+    "sound_pic": "https://your-cdn.com/images/113255.jpg"
+  },
+  {
+    "id": "71204",
+    "author": "王磐",
+    "dynasty": "明代",
+    "title": "朝天子·咏喇叭",
+    "content": "喇叭，唢呐，曲儿小腔儿大。官船来往乱如麻，全仗你抬声价。(唢呐一作：锁呐；声价一作：身价)\n军听了军愁，民听了民怕。哪里去辨甚么真共假？(甚么同：什么)\n眼见的吹翻了这家，吹伤了那家，只吹的水尽鹅飞罢！",
+    "audio": "https://your-cdn.com/audio/71204.mp3",
+    "sound_pic": "https://your-cdn.com/images/71204.jpg"
+  },
+  {
+    "id": "71201",
+    "author": "张养浩",
+    "dynasty": "元代",
+    "title": "山坡羊·潼关怀古",
+    "content": "峰峦如聚，波涛如怒，山河表里潼关路。望西都，意踌躇。伤心秦汉经行处，宫阙万间都做了土。兴，百姓苦；亡，百姓苦。",
+    "audio": "https://your-cdn.com/audio/71201.mp3",
+    "sound_pic": "https://your-cdn.com/images/71201.png"
+  },
+  {
+    "id": "70831",
+    "author": "秋瑾",
+    "dynasty": "近现代",
+    "title": "满江红·小住京华",
+    "content": "小住京华，早又是中秋佳节。为篱下黄花开遍，秋容如拭。四面歌残终破楚，八年风味徒思浙。苦将侬强派作蛾眉，殊未屑！(徒思浙一作：独思浙，蛾眉一作：娥眉)\n身不得，男儿列，心却比，男儿烈。算平生肝胆，因人常热。俗子胸襟谁识我？英雄末路当磨折。莽红尘何处觅知音？青衫湿！",
+    "audio": "https://your-cdn.com/audio/70831.mp3",
+    "sound_pic": "https://your-cdn.com/images/70831.jpg"
+  },
+  {
+    "id": "69231",
+    "author": "夏完淳",
+    "dynasty": "明代",
+    "title": "别云间",
+    "content": "三年羁旅客，今日又南冠。\n无限山河泪，谁言天地宽。(山河一作：河山)\n已知泉路近，欲别故乡难。\n毅魄归来日，灵旗空际看。",
+    "audio": "https://your-cdn.com/audio/69231.mp3",
+    "sound_pic": "https://your-cdn.com/images/69231.jpg"
+  },
+  {
+    "id": "69147",
+    "author": "文天祥",
+    "dynasty": "宋代",
+    "title": "过零丁洋",
+    "content": "辛苦遭逢起一经，干戈寥落四周星。\n山河破碎风飘絮，身世浮沉雨打萍。\n惶恐滩头说惶恐，零丁洋里叹零丁。\n人生自古谁无死？留取丹心照汗青。",
+    "audio": "https://your-cdn.com/audio/69147.mp3",
+    "sound_pic": "https://your-cdn.com/images/69147.jpg"
+  },
+  {
+    "id": "31860",
+    "author": "温庭筠",
+    "dynasty": "唐代",
+    "title": "商山早行",
+    "content": "晨起动征铎，客行悲故乡。\n鸡声茅店月，人迹板桥霜。\n槲叶落山路，枳花明驿墙。(明驿墙一作：照驿墙)\n因思杜陵梦，凫雁满回塘。",
+    "audio": "https://your-cdn.com/audio/31860.mp3",
+    "sound_pic": "https://your-cdn.com/images/31860.jpg"
+  },
+  {
+    "id": "28289",
+    "author": "许浑",
+    "dynasty": "唐代",
+    "title": "咸阳城东楼",
+    "content": "一上高城万里愁，蒹葭杨柳似汀洲。\n溪云初起日沉阁，山雨欲来风满楼。\n鸟下绿芜秦苑夕，蝉鸣黄叶汉宫秋。\n行人莫问当年事，故国东来渭水流。",
+    "audio": "https://your-cdn.com/audio/28289.mp3",
+    "sound_pic": "https://your-cdn.com/images/28289.jpg"
+  },
+  {
+    "id": "18709",
+    "author": "刘禹锡",
+    "dynasty": "唐代",
+    "title": "酬乐天扬州初逢席上见赠",
+    "content": "巴山楚水凄凉地，二十三年弃置身。\n怀旧空吟闻笛赋，到乡翻似烂柯人。\n沉舟侧畔千帆过，病树前头万木春。\n今日听君歌一曲，暂凭杯酒长精神。",
+    "audio": "https://your-cdn.com/audio/18709.mp3",
+    "sound_pic": "https://your-cdn.com/images/18709.jpg"
+  },
+  {
+    "id": "17931",
+    "author": "韩愈",
+    "dynasty": "唐代",
+    "title": "左迁至蓝关示侄孙湘",
+    "content": "一封朝奏九重天，夕贬潮州路八千。(潮州一作：潮阳)\n欲为圣明除弊事，肯将衰朽惜残年！(欲为一作：本为；圣明一作：圣朝；肯将一作：敢将)\n云横秦岭家何在？雪拥蓝关马不前。\n知汝远来应有意，好收吾骨瘴江边。",
+    "audio": "https://your-cdn.com/audio/17931.mp3",
+    "sound_pic": "https://your-cdn.com/images/17931.png"
+  },
+  {
+    "id": "7072",
+    "author": "刘长卿",
+    "dynasty": "唐代",
+    "title": "长沙过贾谊宅",
+    "content": "三年谪宦此栖迟，万古惟留楚客悲。\n秋草独寻人去后，寒林空见日斜时。\n汉文有道恩犹薄，湘水无情吊岂知？\n寂寂江山摇落处，怜君何事到天涯！",
+    "audio": "https://your-cdn.com/audio/7072.mp3"
+  },
+  {
+    "id": "49386",
+    "author": "苏轼",
+    "dynasty": "宋代",
+    "title": "水调歌头·明月几时有",
+    "content": "丙辰中秋，欢饮达旦，大醉，作此篇，兼怀子由。\n明月几时有？把酒问青天。不知天上宫阙，今夕是何年。我欲乘风归去，又恐琼楼玉宇，高处不胜寒。起舞弄清影，何似在人间。(何似一作：何时；又恐一作：惟/唯恐)\n转朱阁，低绮户，照无眠。不应有恨，何事长向别时圆？人有悲欢离合，月有阴晴圆缺，此事古难全。但愿人长久，千里共婵娟。(长向一作：偏向)",
+    "audio": "https://your-cdn.com/audio/49386.mp3",
+    "sound_pic": "https://your-cdn.com/images/49386.jpg",
+    "video_id": "27"
+  },
+  {
+    "id": "10886",
+    "author": "杜甫",
+    "dynasty": "唐代",
+    "title": "月夜忆舍弟",
+    "content": "戍鼓断人行，边秋一雁声。(边秋 一作:秋边)\n露从今夜白，月是故乡明。\n有弟皆分散，无家问死生。\n寄书长不达，况乃未休兵。",
+    "audio": "https://your-cdn.com/audio/10886.mp3"
+  },
+  {
+    "id": "70874",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "行路难·其一",
+    "content": "金樽清酒斗十千，玉盘珍羞直万钱。(羞同：馐；直同：值)\n停杯投箸不能食，拔剑四顾心茫然。\n欲渡黄河冰塞川，将登太行雪满山。(雪满山一作：雪暗天)\n闲来垂钓碧溪上，忽复乘舟梦日边。(碧一作：坐)\n行路难，行路难，多歧路，今安在？\n长风破浪会有时，直挂云帆济沧海。",
+    "audio": "https://your-cdn.com/audio/70874.mp3",
+    "sound_pic": "https://your-cdn.com/images/70874.jpg"
+  },
+  {
+    "id": "57795",
+    "author": "辛弃疾",
+    "dynasty": "宋代",
+    "title": "丑奴儿·书博山道中壁",
+    "content": "少年不识愁滋味，爱上层楼。爱上层楼，为赋新词强说愁。\n而今识尽愁滋味，欲说还休。欲说还休，却道“天凉好个秋”！",
+    "audio": "https://your-cdn.com/audio/57795.mp3",
+    "sound_pic": "https://your-cdn.com/images/57795.jpg"
+  },
+  {
+    "id": "50323",
+    "author": "秦观",
+    "dynasty": "宋代",
+    "title": "行香子·树绕村庄",
+    "content": "树绕村庄，水满陂塘。倚东风，豪兴徜徉。小园几许，收尽春光。有桃花红，李花白，菜花黄。\n远远围墙，隐隐茅堂。飏青旗，流水桥旁。偶然乘兴，步过东冈。正莺儿啼，燕儿舞，蝶儿忙。",
+    "audio": "https://your-cdn.com/audio/50323.mp3",
+    "sound_pic": "https://your-cdn.com/images/50323.png"
+  },
+  {
+    "id": "28698",
+    "author": "李商隐",
+    "dynasty": "唐代",
+    "title": "无题·相见时难别亦难",
+    "content": "相见时难别亦难，东风无力百花残。\n春蚕到死丝方尽，蜡炬成灰泪始干。\n晓镜但愁云鬓改，夜吟应觉月光寒。\n蓬山此去无多路，青鸟殷勤为探看。",
+    "audio": "https://your-cdn.com/audio/28698.mp3",
+    "sound_pic": "https://your-cdn.com/images/28698.jpg"
+  },
+  {
+    "id": "48592",
+    "author": "晏殊",
+    "dynasty": "宋代",
+    "title": "浣溪沙·一曲新词酒一杯",
+    "content": "一曲新词酒一杯，去年天气旧亭台。夕阳西下几时回？\n无可奈何花落去，似曾相识燕归来。小园香径独徘徊。",
+    "audio": "https://your-cdn.com/audio/48592.mp3",
+    "sound_pic": "https://your-cdn.com/images/48592.jpg"
+  },
+  {
+    "id": "48723",
+    "author": "欧阳修",
+    "dynasty": "宋代",
+    "title": "采桑子·轻舟短棹西湖好",
+    "content": "轻舟短棹西湖好，绿水逶迤。芳草长堤，隐隐笙歌处处随。\n无风水面琉璃滑，不觉船移。微动涟漪，惊起沙禽掠岸飞。",
+    "audio": "https://your-cdn.com/audio/48723.mp3",
+    "sound_pic": "https://your-cdn.com/images/48723.jpg"
+  },
+  {
+    "id": "47979",
+    "author": "佚名",
+    "dynasty": "两汉",
+    "title": "庭中有奇树",
+    "content": "庭中有奇树，绿叶发华滋。\n攀条折其荣，将以遗所思。\n馨香盈怀袖，路远莫致之。\n此物何足贵？但感别经时。",
+    "audio": "https://your-cdn.com/audio/47979.mp3"
+  },
+  {
+    "id": "20285",
+    "author": "李贺",
+    "dynasty": "唐代",
+    "title": "雁门太守行",
+    "content": "黑云压城城欲摧，甲光向日金鳞开。(向日一作：向月)\n角声满天秋色里，塞上燕脂凝夜紫。(塞上一作：塞土)\n半卷红旗临易水，霜重鼓寒声不起。\n报君黄金台上意，提携玉龙为君死。",
+    "audio": "https://your-cdn.com/audio/20285.mp3",
+    "sound_pic": "https://your-cdn.com/images/20285.jpg"
+  },
+  {
+    "id": "5653",
+    "author": "王维",
+    "dynasty": "唐代",
+    "title": "使至塞上",
+    "content": "单车欲问边，属国过居延。\n征蓬出汉塞，归雁入胡天。\n大漠孤烟直，长河落日圆。\n萧关逢候骑，都护在燕然。",
+    "audio": "https://your-cdn.com/audio/5653.mp3",
+    "sound_pic": "https://your-cdn.com/images/5653.jpg"
+  },
+  {
+    "id": "2369",
+    "author": "王绩",
+    "dynasty": "唐代",
+    "title": "野望",
+    "content": "东皋薄暮望，徙倚欲何依。\n树树皆秋色，山山唯落晖。\n牧人驱犊返，猎马带禽归。\n相顾无相识，长歌怀采薇。",
+    "audio": "https://your-cdn.com/audio/2369.mp3",
+    "sound_pic": "https://your-cdn.com/images/2369.png"
+  },
+  {
+    "id": "71045",
+    "author": "龚自珍",
+    "dynasty": "清代",
+    "title": "己亥杂诗·其五",
+    "content": "浩荡离愁白日斜，吟鞭东指即天涯。\n落红不是无情物，化作春泥更护花。",
+    "audio": "https://your-cdn.com/audio/71045.mp3",
+    "sound_pic": "https://your-cdn.com/images/71045.jpg"
+  },
+  {
+    "id": "69146",
+    "author": "赵师秀",
+    "dynasty": "宋代",
+    "title": "约客",
+    "content": "黄梅时节家家雨，青草池塘处处蛙。\n有约不来过夜半，闲敲棋子落灯花。",
+    "audio": "https://your-cdn.com/audio/69146.mp3",
+    "sound_pic": "https://your-cdn.com/images/69146.jpg"
+  },
+  {
+    "id": "69127",
+    "author": "陆游",
+    "dynasty": "宋代",
+    "title": "游山西村",
+    "content": "莫笑农家腊酒浑，丰年留客足鸡豚。\n山重水复疑无路，柳暗花明又一村。\n箫鼓追随春社近，衣冠简朴古风存。\n从今若许闲乘月，拄杖无时夜叩门。",
+    "audio": "https://your-cdn.com/audio/69127.mp3",
+    "sound_pic": "https://your-cdn.com/images/69127.jpg"
+  },
+  {
+    "id": "28931",
+    "author": "李商隐",
+    "dynasty": "唐代",
+    "title": "贾生",
+    "content": "宣室求贤访逐臣，贾生才调更无伦。\n可怜夜半虚前席，不问苍生问鬼神。",
+    "audio": "https://your-cdn.com/audio/28931.mp3",
+    "sound_pic": "https://your-cdn.com/images/28931.jpg"
+  },
+  {
+    "id": "9747",
+    "author": "岑参",
+    "dynasty": "唐代",
+    "title": "逢入京使",
+    "content": "故园东望路漫漫，双袖龙钟泪不干。\n马上相逢无纸笔，凭君传语报平安。",
+    "audio": "https://your-cdn.com/audio/9747.mp3",
+    "sound_pic": "https://your-cdn.com/images/9747.jpg"
+  },
+  {
+    "id": "8481",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "春夜洛城闻笛",
+    "content": "谁家玉笛暗飞声，散入春风满洛城。\n此夜曲中闻折柳，何人不起故园情。",
+    "audio": "https://your-cdn.com/audio/8481.mp3",
+    "sound_pic": "https://your-cdn.com/images/8481.png"
+  },
+  {
+    "id": "17883",
+    "author": "韩愈",
+    "dynasty": "唐代",
+    "title": "晚春",
+    "content": "草树知春不久归，百般红紫斗芳菲。(草树一作：草木)\n杨花榆荚无才思，惟解漫天作雪飞。",
+    "audio": "https://your-cdn.com/audio/17883.mp3",
+    "sound_pic": "https://your-cdn.com/images/17883.png"
+  },
+  {
+    "id": "69088",
+    "author": "王安石",
+    "dynasty": "宋代",
+    "title": "登飞来峰",
+    "content": "飞来山上千寻塔，闻说鸡鸣见日升。(飞来山一作：飞来峰)\n不畏浮云遮望眼，自缘身在最高层。",
+    "audio": "https://your-cdn.com/audio/69088.mp3"
+  },
+  {
+    "id": "4156",
+    "author": "陈子昂",
+    "dynasty": "唐代",
+    "title": "登幽州台歌",
+    "content": "前不见古人，后不见来者。\n念天地之悠悠，独怆然而涕下！",
+    "audio": "https://your-cdn.com/audio/4156.mp3",
+    "sound_pic": "https://your-cdn.com/images/4156.png"
+  },
+  {
+    "id": "52793",
+    "author": "李清照",
+    "dynasty": "宋代",
+    "title": "如梦令·常记溪亭日暮",
+    "content": "常记溪亭日暮，沉醉不知归路。兴尽晚回舟，误入藕花深处。争渡，争渡，惊起一滩鸥鹭。",
+    "audio": "https://your-cdn.com/audio/52793.mp3",
+    "sound_pic": "https://your-cdn.com/images/52793.png"
+  },
+  {
+    "id": "52792",
+    "author": "李清照",
+    "dynasty": "宋代",
+    "title": "渔家傲·天接云涛连晓雾",
+    "content": "天接云涛连晓雾，星河欲转千帆舞。仿佛梦魂归帝所。闻天语，殷勤问我归何处。\n我报路长嗟日暮，学诗谩有惊人句。九万里风鹏正举。风休住，蓬舟吹取三山去！",
+    "audio": "https://your-cdn.com/audio/52792.mp3",
+    "sound_pic": "https://your-cdn.com/images/52792.jpg"
+  },
+  {
+    "id": "52500",
+    "author": "朱敦儒",
+    "dynasty": "宋代",
+    "title": "相见欢·金陵城上西楼",
+    "content": "金陵城上西楼，倚清秋。万里夕阳垂地大江流。\n中原乱，簪缨散，几时收？试倩悲风吹泪过扬州。",
+    "audio": "https://your-cdn.com/audio/52500.mp3",
+    "sound_pic": "https://your-cdn.com/images/52500.png"
+  },
+  {
+    "id": "48013",
+    "author": "刘桢",
+    "dynasty": "两汉",
+    "title": "赠从弟·其二",
+    "content": "亭亭山上松，瑟瑟谷中风。\n风声一何盛，松枝一何劲。\n冰霜正惨凄，终岁常端正。\n岂不罹凝寒？松柏有本性。",
+    "audio": "https://your-cdn.com/audio/48013.mp3"
+  },
+  {
+    "id": "48006",
+    "author": "曹操",
+    "dynasty": "两汉",
+    "title": "龟虽寿",
+    "content": "神龟虽寿，犹有竟时。\n腾蛇乘雾，终为土灰。(腾一作：螣)\n老骥伏枥，志在千里。\n烈士暮年，壮心不已。\n盈缩之期，不但在天；\n养怡之福，可得永年。\n幸甚至哉，歌以咏志。",
+    "audio": "https://your-cdn.com/audio/48006.mp3"
+  },
+  {
+    "id": "27709",
+    "author": "杜牧",
+    "dynasty": "唐代",
+    "title": "赤壁",
+    "content": "折戟沉沙铁未销，自将磨洗认前朝。\n东风不与周郎便，铜雀春深锁二乔。",
+    "audio": "https://your-cdn.com/audio/27709.mp3",
+    "sound_pic": "https://your-cdn.com/images/27709.jpg"
+  },
+  {
+    "id": "22550",
+    "author": "白居易",
+    "dynasty": "唐代",
+    "title": "钱塘湖春行",
+    "content": "孤山寺北贾亭西，水面初平云脚低。\n几处早莺争暖树，谁家新燕啄春泥。\n乱花渐欲迷人眼，浅草才能没马蹄。\n最爱湖东行不足，绿杨阴里白沙堤。",
+    "audio": "https://your-cdn.com/audio/22550.mp3",
+    "sound_pic": "https://your-cdn.com/images/22550.jpg"
+  },
+  {
+    "id": "10835",
+    "author": "杜甫",
+    "dynasty": "唐代",
+    "title": "春望",
+    "content": "国破山河在，城春草木深。\n感时花溅泪，恨别鸟惊心。\n烽火连三月，家书抵万金。\n白头搔更短，浑欲不胜簪。",
+    "audio": "https://your-cdn.com/audio/10835.mp3",
+    "sound_pic": "https://your-cdn.com/images/10835.jpg"
+  },
+  {
+    "id": "8089",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "渡荆门送别",
+    "content": "渡远荆门外，来从楚国游。\n山随平野尽，江入大荒流。\n月下飞天镜，云生结海楼。\n仍怜故乡水，万里送行舟。",
+    "audio": "https://your-cdn.com/audio/8089.mp3",
+    "sound_pic": "https://your-cdn.com/images/8089.jpg"
+  },
+  {
+    "id": "5888",
+    "author": "崔颢",
+    "dynasty": "唐代",
+    "title": "黄鹤楼",
+    "content": "昔人已乘黄鹤去，此地空余黄鹤楼。\n黄鹤一去不复返，白云千载空悠悠。\n晴川历历汉阳树，芳草萋萋鹦鹉洲。\n日暮乡关何处是？烟波江上使人愁。",
+    "audio": "https://your-cdn.com/audio/5888.mp3",
+    "sound_pic": "https://your-cdn.com/images/5888.jpg"
+  },
+  {
+    "id": "71144",
+    "author": "苏轼",
+    "dynasty": "宋代",
+    "title": "记承天寺夜游",
+    "content": "元丰六年十月十二日夜，解衣欲睡，月色入户，欣然起行。念无与为乐者，遂至承天寺寻张怀民。怀民亦未寝，相与步于中庭。庭下如积水空明，水中藻、荇交横，盖竹柏影也。何夜无月？何处无竹柏？但少闲人如吾两人者耳。",
+    "audio": "https://your-cdn.com/audio/71144.mp3",
+    "sound_pic": "https://your-cdn.com/images/71144.jpg"
+  },
+  {
+    "id": "71143",
+    "author": "陶弘景",
+    "dynasty": "南北朝",
+    "title": "答谢中书书",
+    "content": "山川之美，古来共谈。高峰入云，清流见底。两岸石壁，五色交辉。青林翠竹，四时俱备。晓雾将歇，猿鸟乱鸣；夕日欲颓，沉鳞竞跃。实是欲界之仙都。自康乐以来，未复有能与其奇者。",
+    "audio": "https://your-cdn.com/audio/71143.mp3",
+    "sound_pic": "https://your-cdn.com/images/71143.jpg"
+  },
+  {
+    "id": "70898",
+    "author": "陶渊明",
+    "dynasty": "晋代",
+    "title": "饮酒·其五",
+    "content": "结庐在人境，而无车马喧。\n问君何能尔？心远地自偏。\n采菊东篱下，悠然见南山。\n山气日夕佳，飞鸟相与还。\n此中有真意，欲辨已忘言。",
+    "audio": "https://your-cdn.com/audio/70898.mp3",
+    "sound_pic": "https://your-cdn.com/images/70898.jpg"
+  },
+  {
+    "id": "1013734",
+    "author": "陆游",
+    "dynasty": "宋代",
+    "title": "十一月四日风雨大作·其二",
+    "content": "僵卧孤村不自哀，尚思为国戍轮台。\n夜阑卧听风吹雨，铁马冰河入梦来。",
+    "audio": "https://your-cdn.com/audio/1013734.mp3"
+  },
+  {
+    "id": "71126",
+    "author": "刘义庆",
+    "dynasty": "南北朝",
+    "title": "咏雪",
+    "content": "谢太傅寒雪日内集，与儿女讲论文义。俄而雪骤，公欣然曰：“白雪纷纷何所似？”兄子胡儿曰：“撒盐空中差可拟。”兄女曰：“未若柳絮因风起。”公大笑乐。即公大兄无奕女，左将军王凝之妻也。",
+    "audio": "https://your-cdn.com/audio/71126.mp3"
+  },
+  {
+    "id": "1013627",
+    "author": "吕不韦",
+    "dynasty": "先秦",
+    "title": "穿井得一人",
+    "content": "宋之丁氏，家无井而出溉汲，常一人居外。及其家穿井，告人曰：“吾穿井得一人。”有闻而传之者：“丁氏穿井得一人。”国人道之，闻之于宋君。宋君令人问之于丁氏，丁氏对曰：“得一人之使，非得一人于井中也。”求闻之若此，不若无闻也。",
+    "audio": "https://your-cdn.com/audio/1013627.mp3",
+    "sound_pic": "https://your-cdn.com/images/1013627.png"
+  },
+  {
+    "id": "73274",
+    "author": "谭嗣同",
+    "dynasty": "清代",
+    "title": "潼关",
+    "content": "终古高云簇此城，秋风吹散马蹄声。\n河流大野犹嫌束，山入潼关不解平。",
+    "audio": "https://your-cdn.com/audio/73274.mp3"
+  },
+  {
+    "id": "71200",
+    "author": "刘禹锡",
+    "dynasty": "唐代",
+    "title": "秋词二首·其一",
+    "content": "自古逢秋悲寂寥，我言秋日胜春朝。\n晴空一鹤排云上，便引诗情到碧霄。",
+    "audio": "https://your-cdn.com/audio/71200.mp3",
+    "sound_pic": "https://your-cdn.com/images/71200.png"
+  },
+  {
+    "id": "69957",
+    "author": "马致远",
+    "dynasty": "元代",
+    "title": "天净沙·秋思",
+    "content": "枯藤老树昏鸦，小桥流水人家，古道西风瘦马。夕阳西下，断肠人在天涯。",
+    "audio": "https://your-cdn.com/audio/69957.mp3",
+    "sound_pic": "https://your-cdn.com/images/69957.png",
+    "video_id": "38"
+  },
+  {
+    "id": "48005",
+    "author": "曹操",
+    "dynasty": "两汉",
+    "title": "观沧海",
+    "content": "东临碣石，以观沧海。\n水何澹澹，山岛竦峙。\n树木丛生，百草丰茂。\n秋风萧瑟，洪波涌起。\n日月之行，若出其中；\n星汉灿烂，若出其里。\n幸甚至哉，歌以咏志。",
+    "audio": "https://your-cdn.com/audio/48005.mp3",
+    "sound_pic": "https://your-cdn.com/images/48005.jpg"
+  },
+  {
+    "id": "28607",
+    "author": "李商隐",
+    "dynasty": "唐代",
+    "title": "夜雨寄北",
+    "content": "君问归期未有期，巴山夜雨涨秋池。\n何当共剪西窗烛，却话巴山夜雨时。",
+    "audio": "https://your-cdn.com/audio/28607.mp3",
+    "sound_pic": "https://your-cdn.com/images/28607.jpg"
+  },
+  {
+    "id": "14934",
+    "author": "李益",
+    "dynasty": "唐代",
+    "title": "夜上受降城闻笛",
+    "content": "回乐烽前沙似雪，受降城外月如霜。(回乐烽一作：回乐峰)\n不知何处吹芦管，一夜征人尽望乡。",
+    "audio": "https://your-cdn.com/audio/14934.mp3",
+    "sound_pic": "https://your-cdn.com/images/14934.jpg"
+  },
+  {
+    "id": "11532",
+    "author": "杜甫",
+    "dynasty": "唐代",
+    "title": "江南逢李龟年",
+    "content": "岐王宅里寻常见，崔九堂前几度闻。\n正是江南好风景，落花时节又逢君。",
+    "audio": "https://your-cdn.com/audio/11532.mp3",
+    "sound_pic": "https://your-cdn.com/images/11532.png"
+  },
+  {
+    "id": "9724",
+    "author": "岑参",
+    "dynasty": "唐代",
+    "title": "行军九日思长安故园",
+    "content": "强欲登高去，无人送酒来。\n遥怜故园菊，应傍战场开。",
+    "audio": "https://your-cdn.com/audio/9724.mp3",
+    "sound_pic": "https://your-cdn.com/images/9724.png"
+  },
+  {
+    "id": "8027",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "闻王昌龄左迁龙标遥有此寄",
+    "content": "杨花落尽子规啼，闻道龙标过五溪。\n我寄愁心与明月，随君直到夜郎西。(随君一作：随风)",
+    "audio": "https://your-cdn.com/audio/8027.mp3",
+    "sound_pic": "https://your-cdn.com/images/8027.png"
+  },
+  {
+    "id": "7863",
+    "author": "李白",
+    "dynasty": "唐代",
+    "title": "峨眉山月歌",
+    "content": "峨眉山月半轮秋，影入平羌江水流。\n夜发清溪向三峡，思君不见下渝州。",
+    "audio": "https://your-cdn.com/audio/7863.mp3",
+    "sound_pic": "https://your-cdn.com/images/7863.png"
+  },
+  {
+    "id": "5207",
+    "author": "王湾",
+    "dynasty": "唐代",
+    "title": "次北固山下",
+    "content": "客路青山外，行舟绿水前。\n潮平两岸阔，风正一帆悬。\n海日生残夜，江春入旧年。\n乡书何处达？归雁洛阳边。",
+    "audio": "https://your-cdn.com/audio/5207.mp3",
+    "sound_pic": "https://your-cdn.com/images/5207.png"
+  },
+  {
+    "id": "71196",
+    "author": "佚名",
+    "dynasty": "先秦",
+    "title": "采薇(节选)",
+    "content": "昔我往矣，杨柳依依。\n今我来思，雨雪霏霏。\n行道迟迟，载渴载饥。\n我心伤悲，莫知我哀！",
+    "audio": "https://your-cdn.com/audio/71196.mp3"
+  },
+  {
+    "id": "71220",
+    "author": "李贺",
+    "dynasty": "唐代",
+    "title": "马诗二十三首·其五",
+    "content": "大漠沙如雪，燕山月似钩。\n何当金络脑，快走踏清秋。",
+    "audio": "https://your-cdn.com/audio/71220.mp3",
+    "sound_pic": "https://your-cdn.com/images/71220.jpg"
+  },
+  {
+    "id": "71101",
+    "author": "孟子",
+    "dynasty": "先秦",
+    "title": "学弈",
+    "content": "弈秋，通国之善弈者也。使弈秋诲二人弈，其一人专心致志，惟弈秋之为听；一人虽听之，一心以为有鸿鹄将至，思援弓缴而射之。虽与之俱学，弗若之矣。为是其智弗若与？曰：非然也。",
+    "audio": "https://your-cdn.com/audio/71101.mp3",
+    "sound_pic": "https://your-cdn.com/images/71101.png"
+  },
+  {
+    "id": "70981",
+    "author": "叶绍翁",
+    "dynasty": "宋代",
+    "title": "游园不值",
+    "content": "应怜屐齿印苍苔，小扣柴扉久不开。\n春色满园关不住，一枝红杏出墙来。",
+    "audio": "https://your-cdn.com/audio/70981.mp3"
+  },
+  {
+    "id": "70886",
+    "author": "汉乐府",
+    "dynasty": "两汉",
+    "title": "长歌行",
+    "content": "青青园中葵，朝露待日晞。\n阳春布德泽，万物生光辉。\n常恐秋节至，焜黄华叶衰。\n百川东到海，何时复西归？\n少壮不努力，老大徒伤悲！",
+    "audio": "https://your-cdn.com/audio/70886.mp3",
+    "sound_pic": "https://your-cdn.com/images/70886.jpg"
+  },
+  {
+    "id": "69198",
+    "author": "于谦",
+    "dynasty": "明代",
+    "title": "石灰吟",
+    "content": "千锤万凿出深山，烈火焚烧若等闲。(万凿一作：万击)\n粉骨碎身浑不怕，要留清白在人间。(浑不怕一作：全不怕)",
+    "audio": "https://your-cdn.com/audio/69198.mp3",
+    "sound_pic": "https://your-cdn.com/images/69198.jpg"
+  }
+]
