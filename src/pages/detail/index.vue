@@ -1,13 +1,13 @@
 <template>
   <view class="page detail" :style="pageStyle">
     <!-- 全页背景图 -->
-    <image class="detail__bg" src="/static/bg.jpg" mode="aspectFill" />
+    <image class="detail__bg" src="https://xiangsi.pages.dev/src/static/bg.jpg" mode="aspectFill" />
     <view class="detail__bg-mask" />
 
     <!-- 导航栏：back.png 与胶囊按钮同行 -->
     <view class="detail__navbar" :style="{ paddingTop: statusBarHeight + 'px' }">
       <view class="detail__back-btn" @tap="goBack">
-        <image class="detail__back-img" src="/static/back.png" mode="aspectFit" />
+        <image class="detail__back-img" src="https://xiangsi.pages.dev/src/static/back.png" mode="aspectFit" />
       </view>
     </view>
 
@@ -22,18 +22,16 @@
     <!-- 主内容滚动区 -->
     <scroll-view class="detail__body" scroll-y :show-scrollbar="false">
       <view v-if="poem" class="detail__inner">
-        <!-- 诗词正文卡片 -->
         <view class="detail__card">
-          <image class="detail__card-bg" src="/static/p_bg.png" mode="scaleToFill" />
-          <view class="detail__card-body" :class="{ 'detail__card-body--with-pic': contentBgSrc }">
-            <view v-if="contentBgSrc" class="detail__content-bg-wrap">
-              <image class="detail__content-bg" :src="contentBgSrc" mode="aspectFill" />
-            </view>
-            <view class="detail__audio-btn" @tap.stop="toggleFullAudio">
-              <image class="detail__audio-img" :src="fullPlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
-                mode="aspectFit" />
-            </view>
-            <view class="detail__content-inner">
+          <image class="detail__card-bg" src="https://xiangsi.pages.dev/src/static/p_bg.png" mode="scaleToFill" />
+          <view class="detail__card-inner">
+            <image v-if="contentBgSrc" class="detail__card-pic" :src="contentBgSrc" mode="aspectFill" />
+            <view class="detail__card-body" :class="{ 'detail__card-body--with-pic': contentBgSrc }">
+              <view class="detail__audio-btn" @tap.stop="toggleFullAudio">
+                <image class="detail__audio-img"
+                  :src="fullPlaying ? 'https://xiangsi.pages.dev/src/static/audio-on.png' : 'https://xiangsi.pages.dev/src/static/audio-off.png'"
+                  mode="aspectFit" />
+              </view>
               <text v-for="(line, i) in contentLines" :key="i" class="detail__line text-serif"
                 :class="{ 'detail__line--highlight': isHighlightLine(line) }">{{ line }}</text>
             </view>
@@ -44,12 +42,13 @@
         <view class="detail__actions">
           <view class="detail__action-item" @tap="toggleFavorite">
             <image class="detail__action-img"
-              :src="favorited ? '/static/collection_active.png' : '/static/collection.png'" mode="aspectFit" />
+              :src="favorited ? 'https://xiangsi.pages.dev/src/static/collection_active.png' : 'https://xiangsi.pages.dev/src/static/collection.png'"
+              mode="aspectFit" />
             <text class="detail__action-label text-muted">{{ favorited ? '已收藏' : '收藏' }}</text>
           </view>
           <view class="detail__action-divider" />
           <button class="detail__action-item detail__action-share" open-type="share">
-            <image class="detail__action-img" src="/static/share.png" mode="aspectFit" />
+            <image class="detail__action-img" src="https://xiangsi.pages.dev/src/static/share.png" mode="aspectFit" />
             <text class="detail__action-label text-muted">分享</text>
           </button>
         </view>
@@ -278,7 +277,7 @@ onShareAppMessage(() => ({
 .detail__card {
   position: relative;
   width: 100%;
-  /* 与 p_bg 内层纸面区域对齐，避免插图超出边框阴影 */
+  /* 与 p_bg 内层纸面对齐，避免插图超出边框阴影 */
   padding: 5% 4.2% 6.8% 4.2%;
   box-sizing: border-box;
   border-radius: 24rpx;
@@ -294,46 +293,39 @@ onShareAppMessage(() => ({
   z-index: 0;
 }
 
-.detail__card-body {
+.detail__card-inner {
   position: relative;
   z-index: 1;
-  padding: 40rpx 28rpx 36rpx;
-  text-align: center;
-  background: rgba(255, 252, 245, 0.3);
   border-radius: 16rpx;
   overflow: hidden;
 }
 
-.detail__card-body--with-pic {
-  background: transparent;
-}
-
-.detail__content-bg-wrap {
+.detail__card-pic {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 0;
-  border-radius: 16rpx;
-  overflow: hidden;
-}
-
-.detail__content-bg {
-  width: 100%;
-  height: 100%;
   opacity: 0.38;
 }
 
-.detail__content-inner {
+.detail__card-body {
   position: relative;
   z-index: 1;
+  padding: 48rpx 28rpx 40rpx;
+  text-align: center;
+  background: rgba(255, 252, 245, 0.3);
+}
+
+.detail__card-body--with-pic {
+  background: transparent;
 }
 
 .detail__audio-btn {
   position: absolute;
-  top: 16rpx;
-  right: 12rpx;
+  top: 20rpx;
+  right: 16rpx;
   z-index: 2;
   padding: 4rpx;
   display: flex;

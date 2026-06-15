@@ -27,6 +27,7 @@
   "quickapp": {},
   "mp-weixin": {
     "appid": "",
+    "lazyCodeLoading": "requiredComponents",
     "setting": {
       "urlCheck": false,
       "es6": true,

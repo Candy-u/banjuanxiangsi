@@ -10,7 +10,6 @@ let pendingPlay = false
 function getAudioContext() {
   if (!audioCtx) {
     audioCtx = uni.createInnerAudioContext()
-    audioCtx.loop = true
     audioCtx.obeyMuteSwitch = false
 
     audioCtx.onPlay(() => {
@@ -22,6 +21,12 @@ function getAudioContext() {
       if (pendingPlay) {
         audioCtx.play()
       }
+    })
+
+    audioCtx.onEnded(() => {
+      playingKey.value = null
+      loading.value = false
+      pendingPlay = false
     })
 
     audioCtx.onStop(() => {
@@ -86,7 +91,7 @@ export function usePoemAudio() {
     }
 
     playingKey.value = key
-    ctx.loop = true
+    ctx.loop = mode === 'full'
 
     const localSrc = await resolveCachedMedia(src)
     if (playingKey.value !== key) return

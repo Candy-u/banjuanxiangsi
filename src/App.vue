@@ -1,8 +1,11 @@
 <script setup>
 import { onLaunch, onShow, onHide } from '@dcloudio/uni-app'
+import { useAppPreload } from '@/composables/useAppPreload'
+
+const { ensurePreload } = useAppPreload()
 
 onLaunch(() => {
-  console.log('半卷相思 App Launch')
+  ensurePreload()
 })
 
 onShow(() => {

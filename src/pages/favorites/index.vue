@@ -1,7 +1,7 @@
 <template>
   <view class="page favorites" :style="pageStyle">
     <!-- 全页背景 -->
-    <image class="fav__bg" src="/static/bg.jpg" mode="aspectFill" />
+    <image class="fav__bg" src="https://xiangsi.pages.dev/src/static/bg.jpg" mode="aspectFill" />
     <view class="fav__bg-mask" />
 
     <!-- 内容区 -->

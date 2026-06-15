@@ -1,15 +1,15 @@
 <template>
   <view class="page home" :style="pageStyle">
     <!-- 全页背景图 -->
-    <image class="home__bg" src="/static/bg.jpg" mode="aspectFill" />
+    <image class="home__bg" src="https://xiangsi.pages.dev/src/static/bg.jpg" mode="aspectFill" />
     <view class="home__bg-mask" />
 
     <!-- 自定义导航栏（铺满至状态栏） -->
     <view class="home__navbar" :style="{ paddingTop: statusBarHeight + 'px' }">
       <text class="home__navbar-title text-serif">半卷相思</text>
       <view class="home__music-btn" @tap="toggleBgMusic">
-        <image class="home__music-img" :class="{ 'home__music-img--spinning': bgMusicPlaying }" src="/static/music.png"
-          mode="aspectFit" />
+        <image class="home__music-img" :class="{ 'home__music-img--spinning': bgMusicPlaying }"
+          src="https://xiangsi.pages.dev/src/static/music.png" mode="aspectFit" />
       </view>
     </view>
 
@@ -17,11 +17,12 @@
     <view class="home__main" @touchstart="touchStart" @touchend="touchEnd">
       <!-- 诗句卡片 -->
       <view class="home__card" :style="cardAnimStyle">
-        <image class="home__card-bg" src="/static/p_bg.png" mode="scaleToFill" />
+        <image class="home__card-bg" src="https://xiangsi.pages.dev/src/static/p_bg.png" mode="scaleToFill" />
         <view class="home__card-body">
-          <image class="home__quote-icon" src="/static/quote.png" mode="aspectFit" />
+          <image class="home__quote-icon" src="https://xiangsi.pages.dev/src/static/quote.png" mode="aspectFit" />
           <view class="home__audio-btn" @tap.stop="toggleQuoteAudio">
-            <image class="home__audio-img" :src="quotePlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
+            <image class="home__audio-img"
+              :src="quotePlaying ? 'https://xiangsi.pages.dev/src/static/audio-on.png' : 'https://xiangsi.pages.dev/src/static/audio-off.png'"
               mode="aspectFit" />
           </view>
           <text v-for="(line, i) in excerptLines" :key="i" class="home__excerpt text-ndd">{{ line }}</text>
@@ -36,13 +37,14 @@
       <!-- 卡片正下方：收藏 + 分享 -->
       <view class="home__card-actions">
         <view class="home__action-item" @tap="toggleFavorite">
-          <image class="home__action-img" :src="favorited ? '/static/collection_active.png' : '/static/collection.png'"
+          <image class="home__action-img"
+            :src="favorited ? 'https://xiangsi.pages.dev/src/static/collection_active.png' : 'https://xiangsi.pages.dev/src/static/collection.png'"
             mode="aspectFit" />
           <text class="home__action-label text-muted">{{ favorited ? '已收藏' : '收藏' }}</text>
         </view>
         <view class="home__action-divider" />
         <button class="home__action-item home__action-share" open-type="share">
-          <image class="home__action-img" src="/static/share.png" mode="aspectFit" />
+          <image class="home__action-img" src="https://xiangsi.pages.dev/src/static/share.png" mode="aspectFit" />
           <text class="home__action-label text-muted">分享</text>
         </button>
       </view>
@@ -57,6 +59,14 @@
     </view>
 
     <AppTabBar :current="0" />
+
+    <view v-if="!isAppReady" class="home__loading">
+      <view class="home__loading-panel">
+        <text class="home__loading-title text-serif">半卷相思</text>
+        <view class="home__loading-spinner" />
+        <text class="home__loading-text text-muted">正在载入...</text>
+      </view>
+    </view>
 
     <!-- 合成分享图用的离屏 canvas，隐藏在屏幕外 -->
     <canvas canvas-id="shareCanvas"
@@ -73,6 +83,7 @@ import { usePageLayout } from '@/composables/usePageLayout'
 import { useBgMusic } from '@/composables/useBgMusic'
 import { usePoemAudio } from '@/composables/usePoemAudio'
 import { preloadMedia } from '@/utils/mediaCache'
+import { useAppPreload } from '@/composables/useAppPreload'
 import AppTabBar from '@/components/AppTabBar.vue'
 
 const { pageStyle, statusBarHeight } = usePageLayout({ withTabBar: true })
@@ -80,6 +91,7 @@ const internalInstance = getCurrentInstance()
 const shareImagePath = ref('')
 const { isPlaying: bgMusicPlaying, play: playBgMusic, toggle: toggleBgMusic } = useBgMusic()
 const { isPlayingPoem, toggle: togglePoemAudio, stop: stopPoemAudio, preload: preloadPoemAudio } = usePoemAudio()
+const { isAppReady, ensurePreload } = useAppPreload()
 
 const favoritesStore = useFavoritesStore()
 // 轨道圆点数量（装饰用，不对应具体诗词 id）
@@ -184,7 +196,7 @@ function renderShareImage() {
     // share_bg 内层展板区域（按原图 1122 高比例换算）
     const boardTop = Math.round(H * (468 / BG_H))
     const boardBottom = Math.round(H * (1030 / BG_H))
-    const paddingTop = 24
+    const paddingTop = 45
     const startY = boardTop + paddingTop + fontSize
 
     ctx.setFontSize(fontSize)
@@ -267,7 +279,8 @@ watch(currentPoem, (poem) => {
   if (poem.soundPic) preloadMedia(poem.soundPic)
 })
 
-onLoad((options) => {
+onLoad(async (options) => {
+  await ensurePreload()
   if (options?.id) {
     const poem = getPoemById(options.id)
     if (poem) {
@@ -416,7 +429,7 @@ onShareAppMessage(() => ({
 .home__card-body {
   position: relative;
   z-index: 1;
-  padding: 72rpx 36rpx 64rpx;
+  padding: 120rpx 36rpx 64rpx; //增加top
   text-align: center;
   background: transparent;
   border-radius: 16rpx;
@@ -589,5 +602,55 @@ onShareAppMessage(() => ({
   padding: 16rpx 48rpx;
   border-radius: 999rpx;
   border: 1rpx solid rgba(107, 93, 79, 0.25);
+}
+
+.home__loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(247, 243, 237, 0.92);
+}
+
+.home__loading-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28rpx;
+}
+
+.home__loading-title {
+  font-size: 40rpx;
+  color: $color-text;
+  letter-spacing: 8rpx;
+}
+
+.home__loading-spinner {
+  width: 48rpx;
+  height: 48rpx;
+  border: 4rpx solid rgba(107, 93, 79, 0.18);
+  border-top-color: $color-accent;
+  border-radius: 50%;
+  animation: home-spin 0.9s linear infinite;
+}
+
+.home__loading-text {
+  font-size: 24rpx;
+  letter-spacing: 4rpx;
+}
+
+@keyframes home-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 </style>
