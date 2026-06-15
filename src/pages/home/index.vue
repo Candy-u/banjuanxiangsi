@@ -20,6 +20,10 @@
         <image class="home__card-bg" src="/static/p_bg.png" mode="scaleToFill" />
         <view class="home__card-body">
           <image class="home__quote-icon" src="/static/quote.png" mode="aspectFit" />
+          <view class="home__audio-btn" @tap.stop="toggleQuoteAudio">
+            <image class="home__audio-img" :src="quotePlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
+              mode="aspectFit" />
+          </view>
           <text v-for="(line, i) in excerptLines" :key="i" class="home__excerpt text-ndd">{{ line }}</text>
           <text v-if="currentPoem" class="home__meta text-secondary">— {{ currentPoem.author }}</text>
           <!-- 查看全文 -->
@@ -61,18 +65,21 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, getCurrentInstance } from 'vue'
-import { onShareAppMessage, onLoad } from '@dcloudio/uni-app'
+import { ref, computed, onMounted, getCurrentInstance, watch } from 'vue'
+import { onShareAppMessage, onLoad, onHide } from '@dcloudio/uni-app'
 import { getRandomPoem, getPoemById } from '@/utils/poem'
 import { useFavoritesStore } from '@/stores/favorites'
 import { usePageLayout } from '@/composables/usePageLayout'
 import { useBgMusic } from '@/composables/useBgMusic'
+import { usePoemAudio } from '@/composables/usePoemAudio'
+import { preloadMedia } from '@/utils/mediaCache'
 import AppTabBar from '@/components/AppTabBar.vue'
 
 const { pageStyle, statusBarHeight } = usePageLayout({ withTabBar: true })
 const internalInstance = getCurrentInstance()
 const shareImagePath = ref('')
 const { isPlaying: bgMusicPlaying, play: playBgMusic, toggle: toggleBgMusic } = useBgMusic()
+const { isPlayingPoem, toggle: togglePoemAudio, stop: stopPoemAudio, preload: preloadPoemAudio } = usePoemAudio()
 
 const favoritesStore = useFavoritesStore()
 // 轨道圆点数量（装饰用，不对应具体诗词 id）
@@ -91,6 +98,10 @@ let touchStartX = 0
 
 const favorited = computed(() =>
   currentPoem.value ? favoritesStore.isFavorite(currentPoem.value.id) : false
+)
+
+const quotePlaying = computed(() =>
+  currentPoem.value ? isPlayingPoem(currentPoem.value.id, 'quote') : false
 )
 
 const excerptLines = computed(() => {
@@ -135,31 +146,46 @@ function shiftDots(direction) {
   }, 280)
 }
 
+function splitShareLines(text) {
+  const clean = text.replace(/[\n\s]/g, '')
+  const segments = clean.match(/[^，。！？；]+[，。！？；]?/g) || [clean]
+  const lines = []
+  let buf = ''
+  for (const seg of segments) {
+    if (!buf) {
+      buf = seg
+    } else if ((buf + seg).length <= 13) {
+      buf += seg
+    } else {
+      lines.push(buf)
+      buf = seg
+    }
+  }
+  if (buf) lines.push(buf)
+  return lines.slice(0, 3)
+}
+
 function renderShareImage() {
   if (!currentPoem.value) return
   return new Promise((resolve) => {
     const ctx = uni.createCanvasContext('shareCanvas', internalInstance)
     const W = 500
     const H = 400
+    const BG_H = 1122
 
     ctx.drawImage('/static/share_bg.png', 0, 0, W, H)
 
     const { excerpt, author } = currentPoem.value
-    const cleanText = excerpt.replace(/[\n\s]/g, '')
-    const maxLen = 10
-    const lines = []
-    for (let i = 0; i < cleanText.length; i += maxLen) {
-      lines.push(cleanText.slice(i, i + maxLen))
-    }
+    const lines = splitShareLines(excerpt)
 
-    const fontSize = 40
-    const lineH = 60
-    const authorFontSize = 28
-    // share_bg 下方展板区域大约从 y=262 开始，高度约 138px
-    const boardTop = 258
-    const boardH = 142
-    const totalH = lines.length * lineH + authorFontSize + 16
-    const startY = boardTop + Math.max(0, (boardH - totalH) / 2) + fontSize
+    const fontSize = 36
+    const lineH = 52
+    const authorFontSize = 24
+    // share_bg 内层展板区域（按原图 1122 高比例换算）
+    const boardTop = Math.round(H * (468 / BG_H))
+    const boardBottom = Math.round(H * (1030 / BG_H))
+    const paddingTop = 24
+    const startY = boardTop + paddingTop + fontSize
 
     ctx.setFontSize(fontSize)
     ctx.setFillStyle('#5a4535')
@@ -168,9 +194,12 @@ function renderShareImage() {
       ctx.fillText(line, W / 2, startY + i * lineH)
     })
 
-    ctx.setFontSize(authorFontSize)
-    ctx.setFillStyle('#8a7a6a')
-    ctx.fillText(`—— ${author}`, W / 2, startY + lines.length * lineH + 16)
+    const authorY = startY + lines.length * lineH + 12
+    if (authorY + authorFontSize <= boardBottom - 8) {
+      ctx.setFontSize(authorFontSize)
+      ctx.setFillStyle('#8a7a6a')
+      ctx.fillText(`—— ${author}`, W / 2, authorY)
+    }
 
     ctx.draw(false, () => {
       uni.canvasToTempFilePath(
@@ -190,6 +219,7 @@ function renderShareImage() {
 
 function pickRandom(excludeId, direction = 1) {
   if (switching.value) return
+  stopPoemAudio()
   switching.value = true
   if (excludeId !== undefined) shiftDots(direction)
   setTimeout(() => {
@@ -211,6 +241,7 @@ function touchEnd(e) {
 
 function goDetail() {
   if (!currentPoem.value) return
+  stopPoemAudio()
   uni.navigateTo({
     url: `/pages/detail/index?id=${currentPoem.value.id}`,
   })
@@ -224,6 +255,17 @@ function toggleFavorite() {
     icon: 'none',
   })
 }
+
+function toggleQuoteAudio() {
+  if (!currentPoem.value) return
+  togglePoemAudio(currentPoem.value, 'quote')
+}
+
+watch(currentPoem, (poem) => {
+  if (!poem) return
+  preloadPoemAudio(poem, 'quote')
+  if (poem.soundPic) preloadMedia(poem.soundPic)
+})
 
 onLoad((options) => {
   if (options?.id) {
@@ -239,6 +281,10 @@ onLoad((options) => {
 
 onMounted(() => {
   playBgMusic()
+})
+
+onHide(() => {
+  stopPoemAudio()
 })
 
 onShareAppMessage(() => ({
@@ -350,6 +396,9 @@ onShareAppMessage(() => ({
 .home__card {
   position: relative;
   width: 100%;
+  /* 与 p_bg 内层纸面对齐，避免内容区超出边框阴影 */
+  padding: 5% 4.2% 6.8% 4.2%;
+  box-sizing: border-box;
   border-radius: 24rpx;
   overflow: hidden;
   will-change: opacity, transform;
@@ -367,17 +416,36 @@ onShareAppMessage(() => ({
 .home__card-body {
   position: relative;
   z-index: 1;
-  padding: 104rpx 64rpx 96rpx;
+  padding: 72rpx 36rpx 64rpx;
   text-align: center;
-  background: rgba(255, 252, 245, 0.3);
+  background: transparent;
+  border-radius: 16rpx;
+  overflow: hidden;
 }
 
 .home__quote-icon {
   position: absolute;
-  top: 56rpx;
-  left: 56rpx;
+  top: 40rpx;
+  left: 40rpx;
   width: 64rpx;
   height: 64rpx;
+}
+
+.home__audio-btn {
+  position: absolute;
+  top: 40rpx;
+  right: 40rpx;
+  z-index: 2;
+  padding: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home__audio-img {
+  width: 64rpx;
+  height: 64rpx;
+  display: block;
 }
 
 .home__excerpt {

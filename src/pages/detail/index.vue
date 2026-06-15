@@ -25,13 +25,22 @@
         <!-- 诗词正文卡片 -->
         <view class="detail__card">
           <image class="detail__card-bg" src="/static/p_bg.png" mode="scaleToFill" />
-          <view class="detail__card-body">
-            <text v-for="(line, i) in contentLines" :key="i" class="detail__line text-serif"
-              :class="{ 'detail__line--highlight': isHighlightLine(line) }">{{ line }}</text>
+          <view class="detail__card-body" :class="{ 'detail__card-body--with-pic': contentBgSrc }">
+            <view v-if="contentBgSrc" class="detail__content-bg-wrap">
+              <image class="detail__content-bg" :src="contentBgSrc" mode="aspectFill" />
+            </view>
+            <view class="detail__audio-btn" @tap.stop="toggleFullAudio">
+              <image class="detail__audio-img" :src="fullPlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
+                mode="aspectFit" />
+            </view>
+            <view class="detail__content-inner">
+              <text v-for="(line, i) in contentLines" :key="i" class="detail__line text-serif"
+                :class="{ 'detail__line--highlight': isHighlightLine(line) }">{{ line }}</text>
+            </view>
           </view>
         </view>
 
-        <!-- 收藏 + 分享（复用首页样式） -->
+        <!-- 收藏 + 分享 -->
         <view class="detail__actions">
           <view class="detail__action-item" @tap="toggleFavorite">
             <image class="detail__action-img"
@@ -50,20 +59,30 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
-import { onLoad, onShareAppMessage } from '@dcloudio/uni-app'
+import { ref, computed, watch } from 'vue'
+import { onLoad, onShareAppMessage, onHide, onUnload } from '@dcloudio/uni-app'
 import { getPoemById } from '@/utils/poem'
 import { useFavoritesStore } from '@/stores/favorites'
 import { usePageLayout } from '@/composables/usePageLayout'
+import { usePoemAudio } from '@/composables/usePoemAudio'
+import { resolveCachedMedia, preloadMedia } from '@/utils/mediaCache'
 
 const { statusBarHeight, pageStyle } = usePageLayout({ withTabBar: false })
 
 const favoritesStore = useFavoritesStore()
+const { isPlayingPoem, toggle: togglePoemAudio, stop: stopPoemAudio, preload: preloadPoemAudio } = usePoemAudio()
 const poem = ref(null)
 
 const favorited = computed(() =>
   poem.value ? favoritesStore.isFavorite(poem.value.id) : false
 )
+
+const fullPlaying = computed(() =>
+  poem.value ? isPlayingPoem(poem.value.id, 'full') : false
+)
+
+const cardSoundPic = computed(() => poem.value?.soundPic?.trim() || '')
+const contentBgSrc = ref('')
 
 const contentLines = computed(() => {
   if (!poem.value?.content) return []
@@ -108,10 +127,34 @@ function toggleFavorite() {
   })
 }
 
+function toggleFullAudio() {
+  if (!poem.value) return
+  togglePoemAudio(poem.value, 'full')
+}
+
 onLoad((query) => {
   if (query?.id) {
     poem.value = getPoemById(query.id)
   }
+})
+
+watch(poem, (item) => {
+  if (item) preloadPoemAudio(item, 'full')
+})
+
+watch(cardSoundPic, async (url) => {
+  contentBgSrc.value = ''
+  if (!url) return
+  preloadMedia(url)
+  contentBgSrc.value = await resolveCachedMedia(url)
+})
+
+onHide(() => {
+  stopPoemAudio()
+})
+
+onUnload(() => {
+  stopPoemAudio()
 })
 
 onShareAppMessage(() => ({
@@ -235,6 +278,9 @@ onShareAppMessage(() => ({
 .detail__card {
   position: relative;
   width: 100%;
+  /* 与 p_bg 内层纸面区域对齐，避免插图超出边框阴影 */
+  padding: 5% 4.2% 6.8% 4.2%;
+  box-sizing: border-box;
   border-radius: 24rpx;
   overflow: hidden;
 }
@@ -251,9 +297,54 @@ onShareAppMessage(() => ({
 .detail__card-body {
   position: relative;
   z-index: 1;
-  padding: 64rpx 48rpx;
+  padding: 40rpx 28rpx 36rpx;
   text-align: center;
   background: rgba(255, 252, 245, 0.3);
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.detail__card-body--with-pic {
+  background: transparent;
+}
+
+.detail__content-bg-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.detail__content-bg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.38;
+}
+
+.detail__content-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.detail__audio-btn {
+  position: absolute;
+  top: 16rpx;
+  right: 12rpx;
+  z-index: 2;
+  padding: 4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail__audio-img {
+  width: 64rpx;
+  height: 64rpx;
+  display: block;
 }
 
 .detail__line {

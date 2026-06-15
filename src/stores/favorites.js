@@ -39,6 +39,7 @@ export const useFavoritesStore = defineStore('favorites', () => {
       author: poem.author,
       tags: poem.tags || [],
       sound: poem.sound || '',
+      audio: poem.audio || '',
       savedAt: Date.now(),
     })
     persist()

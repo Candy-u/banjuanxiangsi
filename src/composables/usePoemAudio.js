@@ -1,9 +1,11 @@
 import { ref } from 'vue'
+import { resolveCachedMedia, preloadMedia } from '@/utils/mediaCache'
 
-const playingId = ref(null)
+const playingKey = ref(null)
 const loading = ref(false)
 
 let audioCtx = null
+let pendingPlay = false
 
 function getAudioContext() {
   if (!audioCtx) {
@@ -13,54 +15,84 @@ function getAudioContext() {
 
     audioCtx.onPlay(() => {
       loading.value = false
+      pendingPlay = false
+    })
+
+    audioCtx.onCanplay(() => {
+      if (pendingPlay) {
+        audioCtx.play()
+      }
     })
 
     audioCtx.onStop(() => {
-      playingId.value = null
+      playingKey.value = null
       loading.value = false
+      pendingPlay = false
     })
 
     audioCtx.onPause(() => {
-      playingId.value = null
+      playingKey.value = null
+      pendingPlay = false
     })
 
     audioCtx.onError(() => {
       loading.value = false
-      playingId.value = null
+      playingKey.value = null
+      pendingPlay = false
       uni.showToast({ title: '音频加载失败', icon: 'none' })
     })
   }
   return audioCtx
 }
 
+function buildKey(poemId, mode) {
+  return `${String(poemId)}:${mode}`
+}
+
+function getAudioSrc(poem, mode) {
+  if (mode === 'full') return poem?.audio || ''
+  return poem?.sound || poem?.quote_audio || ''
+}
+
 export function usePoemAudio() {
-  function isPlayingPoem(poemId) {
-    return poemId != null && playingId.value === String(poemId)
+  function isPlayingPoem(poemId, mode = 'quote') {
+    return poemId != null && playingKey.value === buildKey(poemId, mode)
   }
 
-  function toggle(poem) {
-    if (!poem?.sound) {
-      uni.showToast({ title: '暂无朗诵', icon: 'none' })
+  function preload(poem, mode = 'quote') {
+    preloadMedia(getAudioSrc(poem, mode))
+  }
+
+  async function toggle(poem, mode = 'quote') {
+    const src = getAudioSrc(poem, mode)
+    if (!src) {
+      uni.showToast({ title: mode === 'full' ? '暂无全文朗诵' : '暂无朗诵', icon: 'none' })
       return
     }
 
-    const id = String(poem.id)
+    const key = buildKey(poem.id, mode)
     const ctx = getAudioContext()
 
-    if (playingId.value === id) {
+    if (playingKey.value === key) {
       ctx.stop()
-      playingId.value = null
+      playingKey.value = null
       return
     }
 
     loading.value = true
-    if (playingId.value) {
+    pendingPlay = false
+    if (playingKey.value) {
       ctx.stop()
     }
 
-    playingId.value = id
-    ctx.src = poem.sound
+    playingKey.value = key
     ctx.loop = true
+
+    const localSrc = await resolveCachedMedia(src)
+    if (playingKey.value !== key) return
+
+    ctx.src = localSrc
+    pendingPlay = true
     ctx.play()
   }
 
@@ -68,14 +100,16 @@ export function usePoemAudio() {
     if (audioCtx) {
       audioCtx.stop()
     }
-    playingId.value = null
+    playingKey.value = null
     loading.value = false
+    pendingPlay = false
   }
 
   return {
-    playingId,
+    playingKey,
     loading,
     isPlayingPoem,
+    preload,
     toggle,
     stop,
   }

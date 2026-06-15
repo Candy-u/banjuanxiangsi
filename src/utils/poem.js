@@ -1,31 +1,20 @@
-import songPoems from '@/data/poems_song.json'
-import tangPoems from '@/data/poems_tang,.json'
-import wudaiPoems from '@/data/poems_wudai.json'
+import purePoetry from '@/data/pure_poetry.json'
 
 function buildPoems() {
-  const sources = [
-    { list: songPoems, prefix: 'song' },
-    { list: tangPoems, prefix: 'tang' },
-    { list: wudaiPoems, prefix: 'wudai' },
-  ]
-
-  const list = []
-  sources.forEach(({ list: src, prefix }) => {
-    src.forEach((p) => {
-      const excerpt = (p.quote || '').trim()
-      const content = (p.content || p.full_poem || '').trim()
-      if (!excerpt && !content) return
-      list.push({
-        id: `${prefix}_${p.id}`,
-        title: p.title || '',
-        excerpt,
-        content,
-        author: p.author || '',
-        dynasty: p.dynasty || '',
-      })
-    })
-  })
-  return list
+  return purePoetry
+    .filter((p) => !p.disabled && p.content && p.quote)
+    .map((p, index) => ({
+      id: `${p.id}_${index}`,
+      poetryId: p.id,
+      title: p.title || '',
+      excerpt: (p.quote || '').trim(),
+      content: (p.content || '').trim(),
+      author: p.author || '',
+      dynasty: p.dynasty || '',
+      sound: p.quote_audio || '',
+      audio: p.audio || '',
+      soundPic: p.sound_pic || '',
+    }))
 }
 
 const poems = buildPoems()
