@@ -8,6 +8,21 @@
       }
     },
     {
+      "path": "pages/appreciate/index",
+      "style": {
+        "navigationBarTitleText": "赏析",
+        "backgroundColor": "#F7F3ED"
+      }
+    },
+    {
+      "path": "pages/appreciate/list",
+      "style": {
+        "navigationBarTitleText": "诗词列表",
+        "navigationStyle": "custom",
+        "backgroundColor": "#F7F3ED"
+      }
+    },
+    {
       "path": "pages/favorites/index",
       "style": {
         "navigationBarTitleText": "我的收藏",
@@ -48,6 +63,12 @@
         "text": "今日",
         "iconPath": "static/tab/tab-home.png",
         "selectedIconPath": "static/tab/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/appreciate/index",
+        "text": "赏析",
+        "iconPath": "static/tab/tab-appreciate.png",
+        "selectedIconPath": "static/tab/tab-appreciate-active.png"
       },
       {
         "pagePath": "pages/favorites/index",

@@ -1,7 +1,7 @@
 <template>
   <view class="page home" :style="pageStyle">
     <!-- 全页背景图 -->
-    <image class="home__bg" src="https://xiangsi.pages.dev/src/static/bg.jpg" mode="aspectFill" />
+    <image class="home__bg" src="/static/bg.jpg" mode="aspectFill" />
     <view class="home__bg-mask" />
 
     <!-- 自定义导航栏（铺满至状态栏） -->
@@ -76,8 +76,8 @@
 
 <script setup>
 import { ref, computed, onMounted, getCurrentInstance, watch } from 'vue'
-import { onShareAppMessage, onLoad, onHide } from '@dcloudio/uni-app'
-import { getRandomPoem, getPoemById } from '@/utils/poem'
+import { onShareAppMessage, onLoad, onHide, onShow } from '@dcloudio/uni-app'
+import { getRandomPoem, getPoemById, resetShuffleQueue } from '@/utils/poem'
 import { useFavoritesStore } from '@/stores/favorites'
 import { usePageLayout } from '@/composables/usePageLayout'
 import { useBgMusic } from '@/composables/useBgMusic'
@@ -107,6 +107,8 @@ const switching = ref(false)
 const scrollIndex = ref(Math.floor(TRACK_DOT_COUNT / 2))
 const dotsTransition = ref('')
 let touchStartX = 0
+let isFirstShow = true
+let skipRefreshFromDetail = false
 
 const favorited = computed(() =>
   currentPoem.value ? favoritesStore.isFavorite(currentPoem.value.id) : false
@@ -253,6 +255,7 @@ function touchEnd(e) {
 
 function goDetail() {
   if (!currentPoem.value) return
+  skipRefreshFromDetail = true
   stopPoemAudio()
   uni.navigateTo({
     url: `/pages/detail/index?id=${currentPoem.value.id}`,
@@ -289,7 +292,25 @@ onLoad(async (options) => {
       return
     }
   }
+  resetShuffleQueue()
   pickRandom()
+})
+
+onShow(() => {
+  if (isFirstShow) {
+    isFirstShow = false
+    return
+  }
+  if (skipRefreshFromDetail) {
+    skipRefreshFromDetail = false
+    return
+  }
+  if (currentPoem.value?.id) {
+    pickRandom(currentPoem.value.id)
+  } else {
+    resetShuffleQueue()
+    pickRandom()
+  }
 })
 
 onMounted(() => {

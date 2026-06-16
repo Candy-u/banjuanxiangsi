@@ -10,6 +10,12 @@ export const TAB_ITEMS = [
     selectedIcon: '/static/tab/tab-home-active.png',
   },
   {
+    pagePath: 'pages/appreciate/index',
+    text: '赏析',
+    icon: '/static/tab/tab-appreciate.png',
+    selectedIcon: '/static/tab/tab-appreciate-active.png',
+  },
+  {
     pagePath: 'pages/favorites/index',
     text: '收藏',
     icon: '/static/tab/tab-fav.png',

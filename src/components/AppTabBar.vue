@@ -20,7 +20,7 @@
 import { TAB_ITEMS } from '@/constants/tabBar'
 
 const props = defineProps({
-  /** 当前选中的 tab 索引：0 今日 / 1 收藏 / 2 关于 */
+  /** 当前选中的 tab 索引：0 今日 / 1 赏析 / 2 收藏 / 3 关于 */
   current: {
     type: Number,
     default: 0,

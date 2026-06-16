@@ -19,7 +19,7 @@
       </view>
     </view>
 
-    <AppTabBar :current="2" />
+    <AppTabBar :current="3" />
   </view>
 </template>
 

@@ -25,3 +25,4 @@ project.private.config.json
 *.sln
 *.sw?
 scripts
+docs

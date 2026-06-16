@@ -1,7 +1,7 @@
 <template>
   <view class="page detail" :style="pageStyle">
     <!-- 全页背景图 -->
-    <image class="detail__bg" src="https://xiangsi.pages.dev/src/static/bg.jpg" mode="aspectFill" />
+    <image class="detail__bg" src="/static/bg.jpg" mode="aspectFill" />
     <view class="detail__bg-mask" />
 
     <!-- 导航栏：back.png 与胶囊按钮同行 -->
@@ -22,8 +22,7 @@
     <!-- 主内容滚动区 -->
     <scroll-view class="detail__body" scroll-y :show-scrollbar="false">
       <view v-if="poem" class="detail__inner">
-        <view class="detail__card">
-          <image class="detail__card-bg" src="https://xiangsi.pages.dev/src/static/p_bg.png" mode="scaleToFill" />
+        <view class="detail__card" :class="{ 'detail__card--with-pic': contentBgSrc }">
           <view class="detail__card-inner">
             <image v-if="contentBgSrc" class="detail__card-pic" :src="contentBgSrc" mode="aspectFill" />
             <view class="detail__card-body" :class="{ 'detail__card-body--with-pic': contentBgSrc }">
@@ -273,31 +272,43 @@ onShareAppMessage(() => ({
   font-size: 24rpx;
 }
 
-/* ── 诗词正文卡片 ── */
+/* ── 诗词正文卡片（纯 CSS 宣纸质感，随内容自然延展） ── */
 .detail__card {
   position: relative;
   width: 100%;
-  /* 与 p_bg 内层纸面对齐，避免插图超出边框阴影 */
-  padding: 5% 4.2% 6.8% 4.2%;
   box-sizing: border-box;
+  padding: 10rpx;
   border-radius: 24rpx;
-  overflow: hidden;
+  background: linear-gradient(
+    160deg,
+    rgba(215, 200, 180, 0.28) 0%,
+    rgba(195, 180, 160, 0.16) 50%,
+    rgba(215, 200, 180, 0.22) 100%
+  );
+  box-shadow:
+    0 10rpx 36rpx rgba(107, 93, 79, 0.1),
+    0 2rpx 6rpx rgba(107, 93, 79, 0.06);
 }
 
-.detail__card-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
+.detail__card--with-pic {
+  padding: 0;
+  background: transparent;
 }
 
 .detail__card-inner {
   position: relative;
-  z-index: 1;
   border-radius: 16rpx;
   overflow: hidden;
+  background: rgba(255, 252, 245, 0.9);
+  border: 1rpx solid rgba(190, 175, 155, 0.32);
+  box-shadow: inset 0 2rpx 10rpx rgba(210, 190, 165, 0.14);
+}
+
+.detail__card--with-pic .detail__card-inner {
+  border-radius: 24rpx;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .detail__card-pic {
@@ -310,16 +321,20 @@ onShareAppMessage(() => ({
   opacity: 0.38;
 }
 
+.detail__card--with-pic .detail__card-pic {
+  border-radius: 24rpx;
+}
+
 .detail__card-body {
   position: relative;
   z-index: 1;
   padding: 48rpx 28rpx 40rpx;
   text-align: center;
-  background: rgba(255, 252, 245, 0.3);
+  background: transparent;
 }
 
 .detail__card-body--with-pic {
-  background: transparent;
+  background: rgba(255, 252, 245, 0.45);
 }
 
 .detail__audio-btn {

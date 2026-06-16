@@ -7,7 +7,6 @@ export function cdnStatic(path) {
 
 /** 首屏常用静态图（CDN） */
 export const CRITICAL_CDN_IMAGES = [
-  '/bg.jpg',
   '/p_bg.png',
   '/quote.png',
   '/music.png',
@@ -21,8 +20,11 @@ export const CRITICAL_CDN_IMAGES = [
 
 /** TabBar 等本地静态图 */
 export const CRITICAL_LOCAL_IMAGES = [
+  '/static/bg.jpg',
   '/static/tab/tab-home.png',
   '/static/tab/tab-home-active.png',
+  '/static/tab/tab-appreciate.png',
+  '/static/tab/tab-appreciate-active.png',
   '/static/tab/tab-fav.png',
   '/static/tab/tab-fav-active.png',
   '/static/tab/tab-about.png',
