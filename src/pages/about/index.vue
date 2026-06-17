@@ -11,7 +11,7 @@
     <!-- 主场景 -->
     <view class="about__scene">
       <!-- 人物 -->
-      <image class="about__person" src="https://xiangsi.pages.dev/src/static/about_person.png" mode="heightFix" />
+      <image class="about__person" src="/static/about_person.png" mode="heightFix" />
       <!-- 竖排诗句 -->
       <view class="about__poem">
         <text class="about__poem-text text-serif">相思了无益，</text>

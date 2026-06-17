@@ -11,7 +11,7 @@ export const TAB_ITEMS = [
   },
   {
     pagePath: 'pages/appreciate/index',
-    text: '赏析',
+    text: '雅集',
     icon: '/static/tab/tab-appreciate.png',
     selectedIcon: '/static/tab/tab-appreciate-active.png',
   },

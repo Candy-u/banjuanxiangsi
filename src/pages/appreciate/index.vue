@@ -3,6 +3,10 @@
     <image class="appreciate__bg" src="/static/bg.jpg" mode="aspectFill" />
     <view class="appreciate__bg-mask" />
 
+    <view class="appreciate__navbar" :style="{ paddingTop: statusBarHeight + 'px' }">
+      <text class="appreciate__navbar-title text-serif">雅集</text>
+    </view>
+
     <view class="appreciate__body">
       <view v-for="group in APPRECIATE_GROUPS" :key="group.title" class="appreciate__section">
         <text class="appreciate__section-title text-serif">{{ group.title }}</text>
@@ -30,7 +34,7 @@ import { getPoemsByCategory } from '@/utils/poem'
 import { usePageLayout } from '@/composables/usePageLayout'
 import AppTabBar from '@/components/AppTabBar.vue'
 
-const { pageStyle } = usePageLayout({ withTabBar: true })
+const { pageStyle, statusBarHeight } = usePageLayout({ withTabBar: true })
 
 const GROUP_TYPE_MAP = {
   教材: 'textbook',
@@ -57,6 +61,8 @@ function goList(groupTitle, key) {
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow: hidden;
+  background: transparent;
 }
 
 .appreciate__bg {
@@ -76,6 +82,23 @@ function goList(groupTitle, key) {
   height: 100vh;
   background: rgba(247, 243, 237, 0.55);
   z-index: 1;
+}
+
+.appreciate__navbar {
+  position: relative;
+  z-index: 2;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  box-sizing: content-box;
+}
+
+.appreciate__navbar-title {
+  font-size: 34rpx;
+  color: $color-text;
+  letter-spacing: 6rpx;
 }
 
 .appreciate__body {

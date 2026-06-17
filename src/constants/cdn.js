@@ -7,13 +7,11 @@ export function cdnStatic(path) {
 
 /** 首屏常用静态图（CDN） */
 export const CRITICAL_CDN_IMAGES = [
-  '/p_bg.png',
   '/quote.png',
   '/music.png',
   '/collection.png',
   '/collection_active.png',
   '/share.png',
-  '/audio-on.png',
   '/audio-off.png',
   '/back.png',
 ].map(cdnStatic)

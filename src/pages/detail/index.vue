@@ -26,10 +26,11 @@
           <view class="detail__card-inner">
             <image v-if="contentBgSrc" class="detail__card-pic" :src="contentBgSrc" mode="aspectFill" />
             <view class="detail__card-body" :class="{ 'detail__card-body--with-pic': contentBgSrc }">
-              <view class="detail__audio-btn" @tap.stop="toggleFullAudio">
-                <image class="detail__audio-img"
-                  :src="fullPlaying ? 'https://xiangsi.pages.dev/src/static/audio-on.png' : 'https://xiangsi.pages.dev/src/static/audio-off.png'"
+              <view class="detail__audio-btn" :class="{ 'detail__audio-btn--playing': fullPlaying }"
+                @tap.stop="toggleFullAudio">
+                <image class="detail__audio-img" :src="fullPlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
                   mode="aspectFit" />
+                <text class="detail__audio-text">{{ fullPlaying ? '朗读' : '朗读' }}</text>
               </view>
               <text v-for="(line, i) in contentLines" :key="i" class="detail__line text-serif"
                 :class="{ 'detail__line--highlight': isHighlightLine(line) }">{{ line }}</text>
@@ -79,7 +80,11 @@ const fullPlaying = computed(() =>
   poem.value ? isPlayingPoem(poem.value.id, 'full') : false
 )
 
-const cardSoundPic = computed(() => poem.value?.soundPic?.trim() || '')
+const DEFAULT_SOUND_PIC = '/static/pic.png'
+const cardSoundPic = computed(() => {
+  if (!poem.value) return ''
+  return poem.value.soundPic?.trim() || DEFAULT_SOUND_PIC
+})
 const contentBgSrc = ref('')
 
 const contentLines = computed(() => {
@@ -279,12 +284,10 @@ onShareAppMessage(() => ({
   box-sizing: border-box;
   padding: 10rpx;
   border-radius: 24rpx;
-  background: linear-gradient(
-    160deg,
-    rgba(215, 200, 180, 0.28) 0%,
-    rgba(195, 180, 160, 0.16) 50%,
-    rgba(215, 200, 180, 0.22) 100%
-  );
+  background: linear-gradient(160deg,
+      rgba(215, 200, 180, 0.28) 0%,
+      rgba(195, 180, 160, 0.16) 50%,
+      rgba(215, 200, 180, 0.22) 100%);
   box-shadow:
     0 10rpx 36rpx rgba(107, 93, 79, 0.1),
     0 2rpx 6rpx rgba(107, 93, 79, 0.06);
@@ -340,18 +343,36 @@ onShareAppMessage(() => ({
 .detail__audio-btn {
   position: absolute;
   top: 20rpx;
-  right: 16rpx;
+  right: 20rpx;
   z-index: 2;
-  padding: 4rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6rpx;
+  min-height: 48rpx;
+  padding: 8rpx 14rpx;
+  border-radius: 999rpx;
+  background: rgba(107, 93, 79, 0.16);
+  line-height: 1;
+  overflow: visible;
+}
+
+.detail__audio-btn--playing {
+  background: rgba(107, 93, 79, 0.24);
 }
 
 .detail__audio-img {
-  width: 64rpx;
-  height: 64rpx;
+  width: 36rpx;
+  height: 36rpx;
   display: block;
+  flex-shrink: 0;
+}
+
+.detail__audio-text {
+  font-size: 20rpx;
+  color: $color-accent;
+  letter-spacing: 2rpx;
+  line-height: 1;
 }
 
 .detail__line {

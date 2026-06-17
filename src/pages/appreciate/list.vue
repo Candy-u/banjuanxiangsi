@@ -12,18 +12,16 @@
 
     <scroll-view class="appreciate-list__body" scroll-y :show-scrollbar="false">
       <view v-if="poems.length" class="appreciate-list__items">
-        <view
-          v-for="item in poems"
-          :key="item.id"
-          class="appreciate-list__item card"
-          @tap="goDetail(item.id)"
-        >
+        <view v-for="item in poems" :key="item.id" class="appreciate-list__item card" @tap="goDetail(item.id)">
           <view class="appreciate-list__main">
             <text v-if="item.title" class="appreciate-list__poem-title text-serif">{{ item.title }}</text>
             <text class="appreciate-list__excerpt text-serif">{{ item.excerpt }}</text>
             <text class="appreciate-list__author text-secondary">{{ item.author }}</text>
           </view>
-          <text v-if="item.sound" class="appreciate-list__sound text-secondary" @tap.stop="playItem(item)">♪</text>
+          <view class="appreciate-list__sound" :class="{ 'appreciate-list__sound--disabled': !isReadable(item) }"
+            @tap.stop="playItem(item)">
+            <image class="appreciate-list__sound-img" src="/static/ting.png" mode="aspectFit" />
+          </view>
         </view>
       </view>
       <view v-else class="appreciate-list__empty">
@@ -76,7 +74,13 @@ function goDetail(poemId) {
 }
 
 function playItem(item) {
-  toggleSound(item, 'quote')
+  if (!isReadable(item)) return
+  const mode = item.sound ? 'quote' : 'full'
+  toggleSound(item, mode)
+}
+
+function isReadable(item) {
+  return !!(item.sound || item.audio)
 }
 </script>
 
@@ -161,10 +165,9 @@ function playItem(item) {
 }
 
 .appreciate-list__item {
-  padding: 36rpx 40rpx;
+  padding: 36rpx 30rpx;
   display: flex;
   align-items: flex-start;
-  gap: 24rpx;
 }
 
 .appreciate-list__main {
@@ -193,8 +196,22 @@ function playItem(item) {
 
 .appreciate-list__sound {
   flex-shrink: 0;
-  font-size: 36rpx;
-  padding: 8rpx 16rpx;
+  width: 52rpx;
+  height: 52rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.appreciate-list__sound--disabled {
+  opacity: 0.35;
+}
+
+.appreciate-list__sound-img {
+  width: 42rpx;
+  height: 42rpx;
+  display: block;
 }
 
 .appreciate-list__empty {

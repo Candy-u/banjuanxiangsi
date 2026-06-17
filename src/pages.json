@@ -10,7 +10,7 @@
     {
       "path": "pages/appreciate/index",
       "style": {
-        "navigationBarTitleText": "赏析",
+        "navigationStyle": "custom",
         "backgroundColor": "#F7F3ED"
       }
     },
@@ -66,7 +66,7 @@
       },
       {
         "pagePath": "pages/appreciate/index",
-        "text": "赏析",
+        "text": "雅集",
         "iconPath": "static/tab/tab-appreciate.png",
         "selectedIconPath": "static/tab/tab-appreciate-active.png"
       },

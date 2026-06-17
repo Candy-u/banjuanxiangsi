@@ -17,13 +17,13 @@
     <view class="home__main" @touchstart="touchStart" @touchend="touchEnd">
       <!-- 诗句卡片 -->
       <view class="home__card" :style="cardAnimStyle">
-        <image class="home__card-bg" src="https://xiangsi.pages.dev/src/static/p_bg.png" mode="scaleToFill" />
         <view class="home__card-body">
           <image class="home__quote-icon" src="https://xiangsi.pages.dev/src/static/quote.png" mode="aspectFit" />
-          <view class="home__audio-btn" @tap.stop="toggleQuoteAudio">
-            <image class="home__audio-img"
-              :src="quotePlaying ? 'https://xiangsi.pages.dev/src/static/audio-on.png' : 'https://xiangsi.pages.dev/src/static/audio-off.png'"
+          <view v-if="currentPoem?.sound" class="home__audio-btn" :class="{ 'home__audio-btn--playing': quotePlaying }"
+            @tap.stop="toggleQuoteAudio">
+            <image class="home__audio-img" :src="quotePlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
               mode="aspectFit" />
+            <text class="home__audio-text">朗读</text>
           </view>
           <text v-for="(line, i) in excerptLines" :key="i" class="home__excerpt text-ndd">{{ line }}</text>
           <text v-if="currentPoem" class="home__meta text-secondary">— {{ currentPoem.author }}</text>
@@ -426,34 +426,33 @@ onShareAppMessage(() => ({
   justify-content: center;
 }
 
-/* ── 诗句卡片 ── */
+/* ── 诗句卡片（纯 CSS 宣纸质感） ── */
 .home__card {
   position: relative;
   width: 100%;
-  /* 与 p_bg 内层纸面对齐，避免内容区超出边框阴影 */
-  padding: 5% 4.2% 6.8% 4.2%;
   box-sizing: border-box;
+  padding: 10rpx;
   border-radius: 24rpx;
+  background: linear-gradient(160deg,
+      rgba(215, 200, 180, 0.28) 0%,
+      rgba(195, 180, 160, 0.16) 50%,
+      rgba(215, 200, 180, 0.22) 100%);
+  box-shadow:
+    0 10rpx 36rpx rgba(107, 93, 79, 0.1),
+    0 2rpx 6rpx rgba(107, 93, 79, 0.06);
   overflow: hidden;
   will-change: opacity, transform;
-}
-
-.home__card-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
 }
 
 .home__card-body {
   position: relative;
   z-index: 1;
-  padding: 120rpx 36rpx 64rpx; //增加top
+  padding: 120rpx 36rpx 64rpx;
   text-align: center;
-  background: transparent;
   border-radius: 16rpx;
+  // background: rgba(255, 252, 245, 0.9);
+  // border: 1rpx solid rgba(190, 175, 155, 0.32);
+  // box-shadow: inset 0 2rpx 10rpx rgba(210, 190, 165, 0.14);
   overflow: hidden;
 }
 
@@ -470,16 +469,34 @@ onShareAppMessage(() => ({
   top: 40rpx;
   right: 40rpx;
   z-index: 2;
-  padding: 4rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6rpx;
+  min-height: 48rpx;
+  padding: 8rpx 14rpx;
+  border-radius: 999rpx;
+  background: rgba(107, 93, 79, 0.16);
+  line-height: 1;
+  overflow: visible;
+}
+
+.home__audio-btn--playing {
+  background: rgba(107, 93, 79, 0.24);
 }
 
 .home__audio-img {
-  width: 64rpx;
-  height: 64rpx;
+  width: 36rpx;
+  height: 36rpx;
   display: block;
+  flex-shrink: 0;
+}
+
+.home__audio-text {
+  font-size: 20rpx;
+  color: $color-accent;
+  letter-spacing: 2rpx;
+  line-height: 1;
 }
 
 .home__excerpt {
