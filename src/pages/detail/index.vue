@@ -42,13 +42,12 @@
         <view class="detail__actions">
           <view class="detail__action-item" @tap="toggleFavorite">
             <image class="detail__action-img"
-              :src="favorited ? 'https://xiangsi.pages.dev/src/static/collection_active.png' : 'https://xiangsi.pages.dev/src/static/collection.png'"
-              mode="aspectFit" />
+              :src="favorited ? '/static/collection_active.png' : '/static/collection.png'" mode="aspectFit" />
             <text class="detail__action-label text-muted">{{ favorited ? '已收藏' : '收藏' }}</text>
           </view>
           <view class="detail__action-divider" />
           <button class="detail__action-item detail__action-share" open-type="share">
-            <image class="detail__action-img" src="https://xiangsi.pages.dev/src/static/share.png" mode="aspectFit" />
+            <image class="detail__action-img" src="/static/share.png" mode="aspectFit" />
             <text class="detail__action-label text-muted">分享</text>
           </button>
         </view>

@@ -18,7 +18,7 @@
       <!-- 诗句卡片 -->
       <view class="home__card" :style="cardAnimStyle">
         <view class="home__card-body">
-          <image class="home__quote-icon" src="https://xiangsi.pages.dev/src/static/quote.png" mode="aspectFit" />
+          <image class="home__quote-icon" src="/static/quote.png" mode="aspectFit" />
           <view v-if="currentPoem?.sound" class="home__audio-btn" :class="{ 'home__audio-btn--playing': quotePlaying }"
             @tap.stop="toggleQuoteAudio">
             <image class="home__audio-img" :src="quotePlaying ? '/static/audio-on.png' : '/static/audio-off.png'"
@@ -37,14 +37,13 @@
       <!-- 卡片正下方：收藏 + 分享 -->
       <view class="home__card-actions">
         <view class="home__action-item" @tap="toggleFavorite">
-          <image class="home__action-img"
-            :src="favorited ? 'https://xiangsi.pages.dev/src/static/collection_active.png' : 'https://xiangsi.pages.dev/src/static/collection.png'"
+          <image class="home__action-img" :src="favorited ? '/static/collection_active.png' : '/static/collection.png'"
             mode="aspectFit" />
           <text class="home__action-label text-muted">{{ favorited ? '已收藏' : '收藏' }}</text>
         </view>
         <view class="home__action-divider" />
         <button class="home__action-item home__action-share" open-type="share">
-          <image class="home__action-img" src="https://xiangsi.pages.dev/src/static/share.png" mode="aspectFit" />
+          <image class="home__action-img" src="/static/share.png" mode="aspectFit" />
           <text class="home__action-label text-muted">分享</text>
         </button>
       </view>

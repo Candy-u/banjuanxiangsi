@@ -1,8 +1,5 @@
 <template>
   <view class="page appreciate" :style="pageStyle">
-    <image class="appreciate__bg" src="/static/bg.jpg" mode="aspectFill" />
-    <view class="appreciate__bg-mask" />
-
     <view class="appreciate__navbar" :style="{ paddingTop: statusBarHeight + 'px' }">
       <text class="appreciate__navbar-title text-serif">雅集</text>
     </view>
@@ -14,11 +11,15 @@
           <view
             v-for="item in group.items"
             :key="item.key"
-            class="appreciate__item card"
+            class="appreciate__item"
             @tap="goList(group.title, item.key)"
           >
-            <text class="appreciate__item-label text-serif">{{ item.label }}</text>
-            <text class="appreciate__item-count text-muted">{{ getCount(group.title, item.key) }} 首</text>
+            <image class="appreciate__item-bg" :src="item.image" mode="aspectFill" />
+            <view class="appreciate__item-content">
+              <text class="appreciate__item-label text-serif">{{ item.label }}</text>
+              <text class="appreciate__item-subtitle">{{ item.subtitle }}</text>
+              <text class="appreciate__item-count">{{ getCount(group.title, item.key) }} 首</text>
+            </view>
           </view>
         </view>
       </view>
@@ -60,33 +61,10 @@ function goList(groupTitle, key) {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-}
-
-.appreciate__bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-}
-
-.appreciate__bg-mask {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(247, 243, 237, 0.55);
-  z-index: 1;
+  background: $color-bg;
 }
 
 .appreciate__navbar {
-  position: relative;
-  z-index: 2;
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -102,8 +80,6 @@ function goList(groupTitle, key) {
 }
 
 .appreciate__body {
-  position: relative;
-  z-index: 2;
   flex: 1;
   padding: $spacing-page;
   padding-top: $spacing-section;
@@ -116,8 +92,9 @@ function goList(groupTitle, key) {
 .appreciate__section-title {
   display: block;
   font-size: 32rpx;
-  color: $color-accent;
-  letter-spacing: 6rpx;
+  font-weight: bold;
+  color: $color-text;
+  letter-spacing: 4rpx;
   margin-bottom: 24rpx;
   padding-left: 20rpx;
   border-left: 6rpx solid rgba(107, 93, 79, 0.35);
@@ -131,25 +108,63 @@ function goList(groupTitle, key) {
 
 .appreciate__item {
   box-sizing: border-box;
-  min-height: 120rpx;
-  padding: 32rpx 16rpx;
+  background: #ffffff;
+  border-radius: 16rpx;
+  overflow: hidden;
+  position: relative;
+  min-height: 160rpx;
+}
+
+.appreciate__item-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  z-index: 0;
+}
+
+.appreciate__item-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 8rpx;
-  text-align: center;
+  min-width: 0;
+  padding: 28rpx 24rpx;
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    #ffffff 45%,
+    rgba(255, 255, 255, 0.6) 70%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .appreciate__item-label {
+  display: block;
   font-size: 30rpx;
-  color: $color-text;
-  letter-spacing: 3rpx;
+  font-weight: bold;
+  color: #333333;
+  letter-spacing: 2rpx;
   line-height: 1.4;
 }
 
+.appreciate__item-subtitle {
+  display: block;
+  font-size: 24rpx;
+  color: #666666;
+  margin-top: 6rpx;
+  line-height: 1.4;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .appreciate__item-count {
+  display: block;
   font-size: 22rpx;
+  color: #a68a64;
+  margin-top: 12rpx;
   letter-spacing: 1rpx;
 }
 </style>
