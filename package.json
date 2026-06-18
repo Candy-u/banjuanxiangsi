@@ -7,7 +7,13 @@
     "dev:h5": "uni",
     "dev:mp-weixin": "uni -p mp-weixin",
     "build:mp-weixin": "uni build -p mp-weixin",
-    "build:h5": "uni build"
+    "build:h5": "uni build",
+    "data:import-love": "node scripts/import-love-poems.js",
+    "data:import-homesick": "node scripts/import-homesick-poems.js",
+    "data:import-farewell": "node scripts/import-farewell-poems.js",
+    "assets:download-love": "node scripts/migrate-nanxiani-assets.js --source=docs/RecentPlays2222.json",
+    "assets:download-homesick": "node scripts/migrate-nanxiani-assets.js --source=docs/RecentPlays3333.json",
+    "assets:download-farewell": "node scripts/migrate-nanxiani-assets.js --source=docs/RecentPlays444.json"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-5000720260410001",
